@@ -15,11 +15,12 @@ OBJ_PATH = obj/
 SRC =	main.cpp \
 		newZombie.cpp \
 		randomChump.cpp \
-		Zombie.cpp \
+		zombie.cpp \
 
 # OBJ Files
-
 OBJ = $(SRC:.cpp=.o)
+OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
+
 
 # Colors
 
@@ -33,21 +34,26 @@ DEFAULT = \033[0;39m
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-		$(CC) $(FLAGS) $(DEBUG) $(OBJ) -o $(NAME)
+$(OBJ_PATH):
+		@mkdir -p $(OBJ_PATH)
+
+$(OBJ_PATH)%.o : $(SRC_PATH)%.cpp | $(OBJ_PATH)
+		@$(CC) -c $(FLAGS) -o $@ $<
+
+$(NAME): $(OBJ_PATH) $(OBJS)
+		@$(CC) -o $(NAME) $(OBJS) $(FLAGS) $(DEBUG)
 		@echo "$(GREEN)Executable <$(NAME)> compiled successfully.$(DEFAULT)"
 
 clean:
-		@$(RM) $(OBJ)
+		@$(RM) -r $(OBJ_PATH)
 		clear
 		@echo "$(YELLOW)Object files deleted.$(DEFAULT)"
 
-fclean:
+fclean: clean
 		@$(RM) $(NAME)
 		clear
 		@echo "$(RED)All <$(NAME)> executables deleted.$(DEFAULT)"
 
 re: fclean all
 
-.SILENT: $(OBJ)
 .PHONY: all clean fclean re
