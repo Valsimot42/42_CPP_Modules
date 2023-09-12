@@ -3,9 +3,9 @@
 int main(){
 	Zombie	*horde;
 
-	horde = newZombie("Blob");
+	horde = newZombie("Bob");
 	horde->introduction();
-	randomChump("Blub");
+	randomChump("Gary");
 	delete horde;
 	return (0);
 }
