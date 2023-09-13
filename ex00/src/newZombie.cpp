@@ -1,4 +1,4 @@
-#include "../inc/zombie.hpp"
+#include "../inc/Zombie.hpp"
 
 Zombie *newZombie(std::string name) {
 	Zombie *horde;

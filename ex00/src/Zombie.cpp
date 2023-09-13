@@ -1,4 +1,4 @@
-#include "../inc/zombie.hpp"
+#include "../inc/Zombie.hpp"
 
 Zombie::Zombie(std::string name) : _name(name){
 	std::cout << this->_name << " has risen from death!" << std::endl;

@@ -15,7 +15,7 @@ OBJ_PATH = obj/
 SRC =	main.cpp \
 		newZombie.cpp \
 		randomChump.cpp \
-		zombie.cpp \
+		Zombie.cpp \
 
 # OBJ Files
 OBJ = $(SRC:.cpp=.o)

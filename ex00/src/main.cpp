@@ -1,4 +1,4 @@
-#include "../inc/zombie.hpp"
+#include "../inc/Zombie.hpp"
 
 int main(){
 	Zombie	*horde;
