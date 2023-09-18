@@ -14,7 +14,7 @@ public:
 	void	introductionIndex(int index) const;
 
 private:
-	std::string const	_name;
+	std::string	_name;
 };
 
 Zombie	*zombieHorde(int N, std::string name);
