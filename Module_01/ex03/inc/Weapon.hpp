@@ -15,11 +15,13 @@
 
 #include <iostream>
 
-class Weapon
-{
+class Weapon {
 public:
 	Weapon();
 	~Weapon();
+
+	void	getType() const;
+	void	setType(std::string type);
 
 private:
 	std::string _type;
