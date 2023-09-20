@@ -23,6 +23,9 @@ public:
 	void	attack() const;
 	void	setName(std::string name);
 	void	setWeapon(Weapon &weapon);
+private:
+	std::string	_name;
+	Weapon		*_weapon;
 };
 
 #endif
