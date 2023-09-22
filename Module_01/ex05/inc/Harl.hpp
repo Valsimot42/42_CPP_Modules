@@ -27,3 +27,5 @@ private:
 	void 	_warning();
 	void	_error();
 };
+
+#endif
