@@ -14,7 +14,6 @@
 # define FIXED_H
 
 #include <iostream>
-#include <string>
 
 class Fixed{
 public:
