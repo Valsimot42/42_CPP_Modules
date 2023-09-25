@@ -14,4 +14,28 @@
 # define FIXED_H
 
 #include <iostream>
+#include <ostream>
+#include <cmath>
 
+class Fixed{
+public:
+	Fixed();
+	Fixed(int const number);
+	Fixed(float const number);
+	Fixed(Fixed const &copy);
+	Fixed &operator = (Fixed const &copy);
+	~Fixed();
+
+	int getRawBits() const;
+	void setRawBits(int const raw);
+	float toFloat() const;
+	int toInt() const;
+
+private:
+	int					_fixedPoint;
+	static const int	_fractionalBits = 8;
+};
+
+std::ostream &operator << (std::ostream &output, Fixed const &input);
+
+#endif
