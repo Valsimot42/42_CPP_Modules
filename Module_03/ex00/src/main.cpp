@@ -28,7 +28,7 @@ int	main(void)
 
 		Freya.criticalDamage(5);
 
-		Freya.attack("Dragon");
+		Freya.attack(("Green Dragon"));
 		Freya.beRepaired(10);
 	}
 	{
@@ -38,13 +38,13 @@ int	main(void)
 
 		std::cout << "-- Battle music starts... --" << std::endl;
 		ClapTrap Freya("Freya");
-		ClapTrap Dragon("Green Dragon");
+		ClapTrap Green_Dragon("Green Dragon");
 
-		Freya.attackTarget(Dragon);
-		Freya.attackTarget(Dragon);
-		Freya.attackTarget(Dragon);
-		Freya.attackTarget(Dragon);
-		Freya.attackTarget(Dragon);
+		Freya.attackTarget(Green_Dragon);
+		Freya.attackTarget(Green_Dragon);
+		Freya.attackTarget(Green_Dragon);
+		Freya.attackTarget(Green_Dragon);
+		Freya.attackTarget(Green_Dragon);
 
 		std::cout << "Green Dragon slammed its tail against Freya!" << std::endl;
 		Freya.takeDamage(5);
@@ -54,7 +54,7 @@ int	main(void)
 		Freya.beRepaired(1);
 		Freya.beRepaired(1);
 
-		Freya.attackTarget(Dragon);
+		Freya.attackTarget(Green_Dragon);
 	}
 	std::cout << std::string(50, '-') << std::endl;
 	return (0);
