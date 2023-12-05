@@ -13,7 +13,7 @@
 
 * Clone the git repository.
 * Choose the module directory which you would like to test.
-* Follow the "How to use" in desired module.
+* Follow the "README" instructions in desired module.
 
 ---
 <h3><b>¤ Introduction ¤</b></h3>
