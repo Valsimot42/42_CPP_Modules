@@ -16,7 +16,7 @@
 * Example of running with arguments:
 
   ```shell
-  ./megaphone This is a test!
+  [tb@localhost ~]$ ./megaphone This is a test!
   ```
 
     Output will be as follows:
@@ -28,7 +28,7 @@
 * If ran without arguments:
 
     ```shell
-    ./megaphone
+    [tb@localhost ~]$ ./megaphone
     ```
 
     Output will be as follows:
