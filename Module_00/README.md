@@ -49,7 +49,7 @@
   Enter a command: <ADD> <SEARCH> <EXIT>
   ```
 
-* `<ADD>` allows you to add a contact. These are the following parameters that you need to enter:
+* `<ADD>` allows you to add a contact. These are the following parameters that you need to enter:<br>
    Enter contact's First name (i.e. Joe)
    Enter contact's Last name (i.e. Smith)
    Enter contact's Nickname (i.e. Smithy)
