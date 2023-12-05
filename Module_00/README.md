@@ -50,11 +50,11 @@
   ```
 
 * `<ADD>` allows you to add a contact. These are the following parameters that you need to enter:<br>
-   Enter contact's First name (i.e. Joe)
-   Enter contact's Last name (i.e. Smith)
-   Enter contact's Nickname (i.e. Smithy)
-   Enter contact's Phone Number (i.e. 749487354)
-   Enter contact's Dark Secret (i.e. Pie Eater)
+   Enter contact's First name (i.e. Joe)<br>
+   Enter contact's Last name (i.e. Smith)<br>
+   Enter contact's Nickname (i.e. Smithy)<br>
+   Enter contact's Phone Number (i.e. 749487354)<br>
+   Enter contact's Dark Secret (i.e. Pie Eater)<br>
  
   Upon entering the parameters, if `<SEARCH>` is executed, we will be presented with something like this:
 
