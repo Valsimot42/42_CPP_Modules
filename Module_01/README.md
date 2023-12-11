@@ -65,5 +65,76 @@
   ```shell
   [tb@localhost ex01]$ ./ex01  
   Usage: ./ex01 [size]
-  [tb@localhost ex01]$ % 
+  [tb@localhost ex01]$ 
+  ```
+
+---
+<h3><b>¤ ex02 ¤</b></h3>
+
+* Execute make
+* Execute the program by running `./ex02`
+
+* Example of running the program:
+
+  ```shell
+  [tb@localhost ex02]$ ./ex02
+  -----
+  Memory address of string: 0x7ffee0417a50
+  Memory address of stringPTR: 0x7ffee0417a50
+  Memory address of stringREF: 0x7ffee0417a50
+  -----
+  Value of string: HI THIS IS BRAIN
+  Value of stringPTR: HI THIS IS BRAIN
+  Value of stringREF: HI THIS IS BRAIN
+  -----
+  [tb@localhost ex02]$
+  ```
+
+---
+<h3><b>¤ ex03 ¤</b></h3>
+
+* Execute make
+* Execute the program by running `./ex03`
+
+* Example of running the program:
+
+  ```shell
+  [tb@localhost ex03]$ ./ex03
+  Weapon created: mace
+  Biggs jumps in to help!
+  Biggs attacks with his mace
+  Biggs attacks with his morning star
+  Biggs flees in terror!
+  Weapon destroyed: morning star
+  Weapon created: mace
+  Wedge jumps in to help!
+  Wedge attacks with his mace
+  Wedge attacks with his morning star
+  Wedge flees in terror!
+  Weapon destroyed: morning star
+  [tb@localhost ex03]$
+  ```
+
+---
+<h3><b>¤ ex04 ¤</b></h3>
+
+* Execute make
+* Create a file as follows: `touch file1`
+* Open the `file1` and write following string inside: `test best`
+* Execute the program with following parameters: `./ex04 file1 test rest`
+* A new file should be created called `file1.replace` with new string inside.
+
+* Example of running the program:
+
+  ```shell
+  // Content of file1:
+  test best
+  ```
+  ```shell
+  [tb@localhost ex04]$ ./ex04 file1 test rest
+  [tb@localhost ex03]$
+  ```
+  ```shell
+  // Content of file1.replace
+  rest best
   ```
