@@ -20,7 +20,7 @@
 
 * Example of running the program:
 
-  ```shell
+  ```text
   [tb@localhost ex00]$ ./ex00
   Bob has risen from death!
   Bob: BraiiiiiiinnnzzzZ...
@@ -40,7 +40,7 @@
 
 * Example of running the program:
 
-  ```shell
+  ```text
   [tb@localhost ex01]$ ./ex01 5
   A zombie has risen from death!
   A zombie has risen from death!
@@ -62,7 +62,7 @@
 
 * In case of trying to execute without proper argumentation, you will be promted an error message:
 
-  ```shell
+  ```text
   [tb@localhost ex01]$ ./ex01  
   Usage: ./ex01 [size]
   [tb@localhost ex01]$ 
@@ -76,7 +76,7 @@
 
 * Example of running the program:
 
-  ```shell
+  ```text
   [tb@localhost ex02]$ ./ex02
   -----
   Memory address of string: 0x7ffee0417a50
@@ -98,7 +98,7 @@
 
 * Example of running the program:
 
-  ```shell
+  ```text
   [tb@localhost ex03]$ ./ex03
   Weapon created: mace
   Biggs jumps in to help!
@@ -126,15 +126,15 @@
 
 * Example of running the program:
 
-  ```shell
+  ```text
   // Content of file1:
   test best
   ```
-  ```shell
+  ```text
   [tb@localhost ex04]$ ./ex04 file1 test rest
   [tb@localhost ex03]$
   ```
-  ```shell
+  ```text
   // Content of file1.replace
   rest best
   ```
