@@ -16,6 +16,7 @@
 <h3><b>¤ ex00 ¤</b></h3>
 
 <details>
+  <summary>Subject</summary>
   
   |<b>Exercise 00: BraiiiiiiinnnzzzZ</b>|
   |:----------------|
@@ -48,7 +49,8 @@
     
 </details>
 
----
+<details>
+  <summary>Program Execution</summary>
 
 * Execute make
 * Execute the program by running `./ex00`
@@ -66,10 +68,13 @@
   [tb@localhost ex00]$
   ```
 
+</details>
+
 ---
 <h3><b>¤ ex01 ¤</b></h3>
 
 <details>
+  <summary>Subject</summary>
   
   |<b>Exercise 01: Moar Brainz!</b>|
   |:----------------|
@@ -94,7 +99,8 @@
     
 </details>
 
----
+<details>
+  <summary>Program Execution</summary>
 
 * Execute make
 * Execute the program by running `./ex01 [size]`.
@@ -129,11 +135,14 @@
   Usage: ./ex01 [size]
   [tb@localhost ex01]$ 
   ```
-  
+
+</details>
+
 ---
 <h3><b>¤ ex02 ¤</b></h3>
 
 <details>
+  <summary>Subject</summary>
   
   |<b>Exercise 02: HI THIS IS BRAIN</b>|
   |:----------------|
@@ -171,7 +180,8 @@
     
 </details>
 
----
+<details>
+  <summary>Program Execution</summary>
 
 * Execute make
 * Execute the program by running `./ex02`
@@ -192,10 +202,13 @@
   [tb@localhost ex02]$
   ```
 
+</details>
+
 ---
 <h3><b>¤ ex03 ¤</b></h3>
 
 <details>
+  <summary>Subject</summary>
   
   |<b>Exercise 03: Unnecessary violence</b>|
   |:----------------|
@@ -260,8 +273,8 @@
     
 </details>
 
----
-
+<details>
+  <summary>Program Execution</summary>
 
 * Execute make
 * Execute the program by running `./ex03`
@@ -285,10 +298,13 @@
   [tb@localhost ex03]$
   ```
 
+</details>
+
 ---
 <h3><b>¤ ex04 ¤</b></h3>
 
 <details>
+  <summary>Subject</summary>
   
   |<b>Exercise 04: Sed is for losers</b>|
   |:----------------|
@@ -311,7 +327,8 @@
 
 </details>
 
----
+<details>
+  <summary>Program Execution</summary>
 
 * Execute make
 * Create a file as follows: `touch file1`
@@ -334,10 +351,13 @@
   rest best
   ```
 
+</details>
+
 ---
 <h3><b>¤ ex05 ¤</b></h3>
 
 <details>
+  <summary>Subject</summary>
   
   |<b>Exercise 05: Harl 2.0</b>|
   |:----------------|
@@ -392,12 +412,14 @@
 
 </details>
 
----
+<details>
+  <summary>Program Execution</summary>
 
 * Execute make
 * Execute the program by running `./ex05`
 
-* Example of running the program:
+<details>
+  <summary>Example</summary>
 
   ```text
   [tb@localhost ex05]$ ./ex05
@@ -413,3 +435,5 @@
   This is unexpected behavior from Harl.
   Harl has left the room.
   [tb@localhost ex05]$
+  ```
+</details>
