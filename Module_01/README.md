@@ -133,6 +133,46 @@
 ---
 <h3><b>¤ ex02 ¤</b></h3>
 
+<details>
+  
+  |<b>Exercise 02: HI THIS IS BRAIN</b>|
+  |:----------------|
+  |Turn in directory: ex02/|
+  |Files to turn in: Makefile, main.cpp|
+  |Forbidden functions : None|
+
+  * Write a program that contains:
+
+    1\) A string variable initialized to "HI THIS IS BRAIN"
+    
+    2\) `stringPTR`: A pointer to the string.
+    
+    3\) `stringREF`: A reference to the string.
+
+  * Your program has to print:
+
+    1\) The memory address of the string variable.
+
+    2\) The memory address held by `stringPTR`.
+
+    3\) The memory address held by `stringREF`.
+
+  * And then:
+
+    1\) The value of the string variable.
+
+    2\) The value pointed to by `stringPTR`.
+
+    3\) The value pointed to by `stringREF`.
+
+  * That’s all, no tricks. The goal of this exercise is to demystify references which can
+    seem completely new. Although there are some little differences, this is another syntax
+    for something you already do: address manipulation.
+    
+</details>
+
+---
+
 * Execute make
 * Execute the program by running `./ex02`
 
