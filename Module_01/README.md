@@ -4,7 +4,7 @@
 
 <p align="center"><b>¤ Description ¤</b>
 
-This module is designed to help you understand the memory allocation, reference, pointers to members and the usage of the switch in CPP.</p>
+<p align="center">This module is designed to help understand the memory allocation, reference, pointers to members and the usage of the switch in CPP.</p>
 
 #
 
