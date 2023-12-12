@@ -2,6 +2,13 @@
 <p align="center"><img src="https://cdn-images-1.medium.com/v2/resize:fit:1200/1*mb0KkzYAZDDSvdYC2MM5hg.jpeg" width="150" height="150" />
 
 #
+
+<h3><b>¤ Description ¤</b></h3>
+
+<p align="center">This module is designed to help you understand the memory allocation, reference, pointers to members and the usage of the switch in CPP.</p>
+
+#
+
 <h3><b>¤ Table of contents ¤</b></h3>
 
 1) <b>ex00</b>
