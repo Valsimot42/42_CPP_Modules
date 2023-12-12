@@ -195,6 +195,74 @@
 ---
 <h3><b>¤ ex03 ¤</b></h3>
 
+<details>
+  
+  |<b>Exercise 03: Unnecessary violence</b>|
+  |:----------------|
+  |Turn in directory: ex03/|
+  |Files to turn in: Makefile, main.cpp, Weapon.{h, hpp}, Weapon.cpp, HumanA.{h, hpp}, HumanA.cpp, HumanB.{h, hpp}, HumanB.cpp|
+  |Forbidden functions : None|
+
+  * Implement a Weapon class that has:
+
+    1\) A private attribute type, which is a string.
+
+    2\) A `getType()` member function that returns a const reference to type.
+
+    3\) A `setType()` member function that sets `type` using the new one passed as parameter.
+
+  * Now, create two classes: HumanA and HumanB. They both have a Weapon and a
+    name. They also have a member function attack() that displays (of course, without the
+    angle brackets):
+
+    `<name> attacks with their <weapon type>`
+
+  * HumanA and HumanB are almost the same except for these two tiny details:
+
+    1\) While HumanA takes the Weapon in its constructor, HumanB doesn’t.
+
+    2\) HumanB may not always have a Weapon, whereas HumanA will always be armed.
+
+  * If your implementation is correct, executing the following code will print an attack
+    with "crude spiked club" then a second attack with "some other type of club" for both
+    test cases:
+
+    ```ruby
+    int main()
+    {
+      {
+        Weapon club = Weapon("crude spiked club");
+    
+        HumanA bob("Bob", club);
+        bob.attack();
+        club.setType("some other type of club");
+        bob.attack();
+      }
+      {
+        Weapon club = Weapon("crude spiked club");
+    
+        HumanB jim("Jim");
+        jim.setWeapon(club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();
+      }
+    
+    return 0;
+    }
+
+  * Don't forget to check for memory leaks.
+
+  * HINT: In which case do you think it would be best to use a pointer to
+    Weapon? And a reference to Weapon? Why? Think about it before
+    starting this exercise.
+
+    
+</details>
+
+---
+
+
 * Execute make
 * Execute the program by running `./ex03`
 
@@ -220,6 +288,31 @@
 ---
 <h3><b>¤ ex04 ¤</b></h3>
 
+<details>
+  
+  |<b>Exercise 04: Sed is for losers</b>|
+  |:----------------|
+  |Turn in directory: ex04/|
+  |Files to turn in : Makefile, main.cpp, *.cpp, *.{h, hpp}|
+  |Forbidden functions : std::string::replace|
+
+  * Create a program that takes three parameters in the following order: a filename and
+    two strings, s1 and s2.
+
+  * It will open the file `<filename>` and copies its content into a new file
+    `<filename>.replace`, replacing every occurrence of s1 with s2.
+
+  * Using C file manipulation functions is forbidden and will be considered cheating. All
+    the member functions of the class std::string are allowed, except replace. Use them
+    wisely!
+
+  * Of course, handle unexpected inputs and errors. You have to create and turn in your
+    own tests to ensure your program works as expected.
+
+</details>
+
+---
+
 * Execute make
 * Create a file as follows: `touch file1`
 * Open the `file1` and write following string inside: `test best`
@@ -243,6 +336,63 @@
 
 ---
 <h3><b>¤ ex05 ¤</b></h3>
+
+<details>
+  
+  |<b>Exercise 05: Harl 2.0</b>|
+  |:----------------|
+  |Turn in directory: ex05/|
+  |Files to turn in : Makefile, main.cpp, Harl.{h, hpp}, Harl.cpp|
+  |Forbidden functions : None|
+
+  * Do you know Harl? We all do, do we? In case you don’t, find below the kind of
+    comments Harl makes. They are classified by levels:
+
+    1\) <b>"DEBUG"</b> level: Debug messages contain contextual information. They are mostly
+        used for problem diagnosis.
+        Example: "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!"
+
+    2\) <b>"INFO"</b> level: These messages contain extensive information. They are helpful for
+        tracing program execution in a production environment.
+        Example: "I cannot believe adding extra bacon costs more money. You didn’t put
+        enough bacon in my burger! If you did, I wouldn’t be asking for more!"
+
+    3\) <b>"WARNING"</b> level: Warning messages indicate a potential issue in the system.
+        However, it can be handled or ignored.
+        Example: "I think I deserve to have some extra bacon for free. I’ve been coming for
+        years whereas you started working here since last month."
+
+    4\) <b>"ERROR"</b> level: These messages indicate an unrecoverable error has occurred.
+        This is usually a critical issue that requires manual intervention.
+        Example: "This is unacceptable! I want to speak to the manager now."
+
+  * You are going to automate Harl. It won’t be difficult since it always says the same
+    things. You have to create a Harl class with the following private member functions:
+
+    1\) `void debug( void );`
+
+    2\) `void info( void );`
+
+    3\) `void warning( void );`
+
+    4\) `void error( void );`
+
+  * Harl also has a public member function that calls the four member functions above
+    depending on the level passed as parameter:
+
+    `void complain( std::string level );`
+
+  * The goal of this exercise is to use pointers to member functions. This is not a
+    suggestion. Harl has to complain without using a forest of if/else if/else. It doesn’t think
+    twice!
+
+  * Create and turn in tests to show that Harl complains a lot. You can use the examples
+    of comments listed above in the subject or choose to use comments of your own.
+
+
+</details>
+
+---
 
 * Execute make
 * Execute the program by running `./ex05`
