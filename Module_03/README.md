@@ -114,3 +114,101 @@
   [tb@localhost ex00]$
 
 </details>
+
+---
+<h3><b>¤ ex01 ¤</b></h3>
+
+<details>
+  <summary>Subject</summary>
+  
+  |<b>Exercise 01: Serena, my love!</b>|
+  |:----------------|
+  |Turn in directory: ex01/|
+  |Files to turn in: Files from previous exercise + ScavTrap.{h, hpp}, ScavTrap.cpp|
+  |Forbidden functions : None|
+
+  * Because you can never have enough ClapTraps, you will now create a derived robot.
+    It will be named ScavTrap and will inherit the constructors and destructor from ClapTrap. However, its constructors, destructor
+    and `attack()` will print different messages. After all, ClapTraps are aware of their individuality.
+
+  * Note that proper construction/destruction chaining must be shown in your tests.
+    When a ScavTrap is created, the program starts by building a ClapTrap. Destruction is
+    in reverse order. Why?
+  
+  * ScavTrap will use the attributes of ClapTrap (update ClapTrap in consequence) and
+   must initialize them to:
+
+     1\) Name, which is passed as parameter to a constructor
+
+     2\) Hit points (100), represent the health of the ClapTrap
+
+     3\) Energy points (50)
+
+     4\) Attack damage (20)
+
+  * ScavTrap will also have its own special capacity: `void guardGate();`
+
+
+</details>
+
+<details>
+  <summary>Program Execution</summary>
+
+* Execute make
+* Execute the program by running `./ex01`
+
+* Example of running the program:
+
+    ```text
+    [tb@localhost ex01]$ ./ex01
+    --------------------------------------------------
+    -- Battle music starts... --
+    ClapTrap Nova Dragon has joined the battle!
+    ScavTrap Nova Dragon has joined the battle!
+    ScavTrap Nova Dragon has entered in Gate keeper mode.
+    ScavTrap Nova Dragon attacks Freya for 20 damage.
+    ClapTrap Nova Dragon took 5 points of damage!
+    ClapTrap Nova Dragon recovered 4 hit points!
+    Freya grew tired of Nova Dragon's bullshit and used 'Jump'!
+    ClapTrap Nova Dragon took 120 points of damage!
+    ClapTrap Nova Dragon is KO!
+    ClapTrap Nova Dragon is KO.
+    ClapTrap Nova Dragon is KO.
+    Nova Dragon fled the battle!
+    ScavTrap Nova Dragon has left the battle!
+    ClapTrap Nova Dragon has left the battle!
+    --------------------------------------------------
+    -- Follow in pursuit? --
+    --------------------------------------------------
+    -- Battle music starts... --
+    ClapTrap Nova Dragon has joined the battle!
+    ScavTrap Nova Dragon has joined the battle!
+    ClapTrap Fratley has joined the battle!
+    ClapTrap Freya has joined the battle!
+    ClapTrap Freya clapped Nova Dragon
+    ClapTrap Nova Dragon took 0 points of damage!
+    ScavTrap Nova Dragon attacks Freya, causing 20 points of damage!
+    ClapTrap Freya took 20 points of damage!
+    ClapTrap Freya is KO!
+    ClapTrap Fratley clapped Nova Dragon
+    ClapTrap Nova Dragon took 0 points of damage!
+    ScavTrap Nova Dragon attacks Fratley, causing 20 points of damage!
+    ClapTrap Fratley took 20 points of damage!
+    ClapTrap Fratley is KO!
+    ScavTrap Nova Dragon attacks Fratley, causing 20 points of damage!
+    ClapTrap Fratley is dead.
+    Nova Dragon lost its balance and smashed against the rocks!
+    ClapTrap Nova Dragon took 80 points of damage!
+    ClapTrap Nova Dragon recovered 18 hit points!
+    ClapTrap Freya has left the battle!
+    ClapTrap Fratley has left the battle!
+    ScavTrap Nova Dragon has left the battle!
+    ClapTrap Nova Dragon has left the battle!
+    Game over...
+    --------------------------------------------------
+    [tb@localhost ex01]$
+
+  
+</details>
+
+---
