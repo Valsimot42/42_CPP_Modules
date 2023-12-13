@@ -6,8 +6,8 @@
 
 1) <b>How to use</b>
 2) <b>Introduction</b>
-3) <b>General Rules</b>
-4) <b>Content</b>
+3) <b>Content</b>
+4) <b>General Rules</b>
 
 ---
 <h3><b>¤ How to use ¤</b></h3>
@@ -22,7 +22,27 @@
 it is centered around to prevent information overload.
 
 ---
+<h3><b> Content </b></h3>
+<p align="left">
+
+|Module|Description|Grade|
+|:---------|:----------|:----------|
+CPP_00 |Namespaces, classes, member functions, stdio streams, initialization lists, static, const. |80/100
+CPP_01 |Memory allocation, pointers to members, references, switch statement |95/100
+CPP_02 |Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form |80/100
+CPP_03 |Inheritance |80/100
+CPP_04 |Subtype polymorphism, abstract classes, interfaces |80/100
+CPP_05 |Repetition and Exceptions | /100
+CPP_06 |C++ casts | /100
+CPP_07 |C++ templates | /100
+CPP_08 |Templated containers, iterators, algorithms | /100
+CPP_09 |STL | /100
+
+---
 <h3><b>¤ General Rules ¤</b></h3>
+
+<details>
+  <summary>Subject rules</summary>
 
 * <b>COMPILING</b>
 
@@ -102,21 +122,4 @@ it is centered around to prevent information overload.
         miss a lot of useful information! Do not hesitate to read about
         theoretical concepts.
 
-
-
----
-<h3><b> Content </b></h3>
-<p align="left">
-
-|Module|Description|Grade|
-|:---------|:----------|:----------|
-CPP_00 |Namespaces, classes, member functions, stdio streams, initialization lists, static, const. |80/100
-CPP_01 |Memory allocation, pointers to members, references, switch statement |95/100
-CPP_02 |Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form |80/100
-CPP_03 |Inheritance |80/100
-CPP_04 |Subtype polymorphism, abstract classes, interfaces |80/100
-CPP_05 |Repetition and Exceptions | /100
-CPP_06 |C++ casts | /100
-CPP_07 |C++ templates | /100
-CPP_08 |Templated containers, iterators, algorithms | /100
-CPP_09 |STL | /100
+</details>
