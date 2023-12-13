@@ -28,11 +28,6 @@ ClapTrap::ClapTrap(std::string name) :
 	_energyPoints(10),
 	_attackDamage(0)
 	{
-	if (_name == "Green Dragon")
-		std::cout <<  _name << " roars!" << std::endl;
-	else if (_name == "Freya")
-		std::cout << _name << " raised her spear!" << std::endl;
-	else
 		std::cout << "ClapTrap " << _name << " has joined the battle!" << std::endl;
 	return ;
 }
@@ -54,37 +49,16 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &copy) {
 }
 
 ClapTrap::~ClapTrap() {
-	if (_name == "Green Dragon")
-		std::cout <<  _name << " flew away!" << std::endl;
-	else if (_name == "Freya") {
-		if (_hitPoints == 0)
-			std::cout << "Game over..." << std::endl;
-		else
-			std::cout << _name << " retreated!" << std::endl;
-	}
-	else
 		std::cout << "ClapTrap " << _name << " has left the battle!" << std::endl;
 	return ;
 }
 
 bool	ClapTrap::_checkAction() {
-	if (_energyPoints <= 0)
-	{
-		if (_name == "Green Dragon")
-			std::cout << _name << " is exhausted!" << std::endl;
-		else if (_name == "Freya")
-			std::cout << _name << " is exhausted!" << std::endl;
-		else
+	if (_energyPoints <= 0) {
 		std::cout << "ClapTrap " << _name << " is out of energy!" << std::endl;
 		return (false);
 	}
-	if (_hitPoints <= 0)
-	{
-		if (_name == "Green Dragon")
-			std::cout << _name << " has been slain!" << std::endl;
-		else if (_name == "Freya")
-			std::cout << _name << " has been defeated..." << std::endl;
-		else
+	if (_hitPoints <= 0) {
 			std::cout << "ClapTrap " << _name << " is KO." << std::endl;
 		return (false);
 	}
@@ -96,20 +70,7 @@ void	ClapTrap::attack(const std::string &target)
 	if (!_checkAction())
 		return ;
 	_energyPoints -= 1;
-	if (_name == "Green Dragon") {
-		if (_attackDamage == 0)
-			std::cout << _name << " missed!" << std::endl;
-		else
-			std::cout << _name << " slashed " << target << " for " << _attackDamage << "damage." << std::endl;
-	}
-	else if (_name == "Freya") {
-		if (_attackDamage == 0)
-			std::cout << _name << " missed!" << std::endl;
-		else
-			std::cout << _name << " slashed " << target << " for " << _attackDamage << " damage." << std::endl;
-	}
-	else
-		std::cout << "ClapTrap " << _name << " clapped " << target << " for " << _attackDamage << " damage." << std::endl;
+	std::cout << "ClapTrap " << _name << " attacks " << target << " for " << _attackDamage << " damage." << std::endl;
 	return ;
 }
 
@@ -117,20 +78,7 @@ void	ClapTrap::attackTarget(ClapTrap &target) {
 	if (!_checkAction())
 		return ;
 	_energyPoints -= 1;
-	if (_name == "Green Dragon") {
-		if (_attackDamage == 0)
-			std::cout << _name << " missed!" << std::endl;
-		else
-			std::cout << _name << " slashed " << target._name << std::endl;
-	}
-	else if (_name == "Freya") {
-		if (_attackDamage == 0)
-			std::cout << _name << " missed!" << std::endl;
-		else
-			std::cout << _name << " slashed " << target._name << std::endl;
-	}
-	else
-		std::cout << "ClapTrap " << _name << " clapped "  << target._name << std::endl;
+	std::cout << "ClapTrap " << _name << " attacks "  << target._name << std::endl;
 	target.takeDamage(_attackDamage);
 	return ;
 }
@@ -144,12 +92,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 	_hitPoints -= amount;
 	if (_hitPoints < 0)
 		_hitPoints = 0;
-	if (_name == "Green Dragon")
-			std::cout << _name << " took " << amount << " points of damage!" << std::endl;
-	else if (_name == "Freya")
-		std::cout << _name << " took " << amount << " points of damage!" << std::endl;
-	else
-		std::cout << "ClapTrap " << _name << " took " << amount << " points of damage!" << std::endl;
+	std::cout << "ClapTrap " << _name << " took " << amount << " points of damage!" << std::endl;
 	if (_hitPoints <= 0)
 		std::cout << "ClapTrap " << _name << " is KO!" << std::endl;
 	return ;
@@ -165,17 +108,9 @@ void	ClapTrap::criticalDamage(unsigned int amount) {
 	_hitPoints -= result;
 	if (_hitPoints < 0)
 		_hitPoints = 0;
-	if (_name == "Green Dragon")
-		std::cout << _name << " took critical damage! " << _name << " took " << result << " points of damage!" << std::endl;
-	else if (_name == "Freya")
-		std::cout << _name << " took critical damage! " << _name << " took " << result << " points of damage!" << std::endl;
-	else
-		std::cout << "ClapTrap " << _name << " took " << result << " points of damage!" << std::endl;
+	std::cout << "ClapTrap " << _name << " took " << result << " points of damage!" << std::endl;
 	if (_hitPoints <= 0) {
-		if (_name == "Freya" || _name == "Green Dragon")
-			return ;
-		else
-			std::cout << "ClapTrap " << _name << " is KO!" << std::endl;
+		std::cout << "ClapTrap " << _name << " is KO!" << std::endl;
 	}
 	return ;
 }
@@ -187,11 +122,6 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	_hitPoints += amount;
 	if (_hitPoints > 10)
 		_hitPoints = 10;
-	if (_name == "Green Dragon")
-		std::cout << _name << " used rapid regeneration! " << amount << " hit points were recovered!" << std::endl;
-	else if (_name == "Freya")
-		std::cout << _name << " used potion! " << amount << " hit points were recovered!" << std::endl;
-	else
-		std::cout << "ClapTrap " << _name << " recovered " << amount << " hit points!" << std::endl;
+	std::cout << "ClapTrap " << _name << " recovered " << amount << " hit points!" << std::endl;
 	return ;
 }

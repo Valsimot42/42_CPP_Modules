@@ -42,12 +42,14 @@ int	main(void)
 		ClapTrap Fratley("Fratley");
 		ClapTrap Freya("Freya");
 
+		Freya.attackTarget(NovaDragon);
 		NovaDragon.attackTarget(Freya);
+		Fratley.attackTarget(NovaDragon);
 		NovaDragon.attackTarget(Fratley);
 		NovaDragon.attackTarget(Fratley);
 
 		std::cout << "Nova Dragon lost its balance and smashed against the rocks!" << std::endl;
-		NovaDragon.takeDamage(99);
+		NovaDragon.takeDamage(80);
 		NovaDragon.beRepaired(18);
 	}
 	std::cout << "Game over..." << std::endl;

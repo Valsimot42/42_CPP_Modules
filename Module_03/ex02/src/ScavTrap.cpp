@@ -51,7 +51,11 @@ ScavTrap::~ScavTrap() {
 }
 
 void	ScavTrap::attack(const std::string &target) {
-	std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+	if (!_checkAction())
+		return ;
+	_energyPoints -= 1;
+	std::cout << "ScavTrap " << _name << " attacks " << target << " for " << _attackDamage << " damage." << std::endl;
+	return ;
 }
 
 void	ScavTrap::attackTarget(ScavTrap &target) {

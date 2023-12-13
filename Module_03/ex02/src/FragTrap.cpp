@@ -51,7 +51,11 @@ FragTrap::~FragTrap() {
 }
 
 void	FragTrap::attack(const std::string &target) {
-	std::cout << "FragTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+	if (!_checkAction())
+		return ;
+	_energyPoints -= 1;
+	std::cout << "FragTrap " << _name << " attacks " << target << " for " << _attackDamage << " damage." << std::endl;
+	return ;
 }
 
 void	FragTrap::attackTarget(FragTrap &target) {
@@ -75,4 +79,3 @@ void	FragTrap::highFivesGuys() {
 		return ;
 	std::cout << "FragTrap " << _name << " asks for a high five!" << std::endl;
 }
-

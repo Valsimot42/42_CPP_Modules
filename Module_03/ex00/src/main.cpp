@@ -46,7 +46,7 @@ int	main(void)
 		Freya.attackTarget(Green_Dragon);
 		Freya.attackTarget(Green_Dragon);
 
-		std::cout << "Green Dragon slammed its tail against Freya!" << std::endl;
+		std::cout << "ClapTrap Green Dragon slammed its tail against Freya!" << std::endl;
 		Freya.takeDamage(5);
 		Freya.beRepaired(1);
 		Freya.beRepaired(1);
