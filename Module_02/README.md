@@ -256,6 +256,10 @@
   b is 10 as integer
   c is 42 as integer
   d is 10 as integer
+  a is 1234.43 as float
+  b is 10 as float
+  c is 42.4219 as float
+  d is 10 as float
   Destructor called
   Destructor called
   Destructor called
