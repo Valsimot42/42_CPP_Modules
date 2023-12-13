@@ -212,3 +212,95 @@
 </details>
 
 ---
+<h3><b>¤ ex02 ¤</b></h3>
+
+<details>
+  <summary>Subject</summary>
+  
+  |<b>Exercise 02: Repetitive work</b>|
+  |:----------------|
+  |Turn in directory: ex02/|
+  |Files to turn in: :  Files from previous exercises + FragTrap.{h, hpp}, FragTrap.cpp|
+  |Forbidden functions : roundf (from <cmath>)|
+
+  * Now, implement a FragTrap class that inherits from ClapTrap. It is very similar to
+    ScavTrap. However, its construction and destruction messages must be different. Proper
+    construction/destruction chaining must be shown in your tests. When a FragTrap is
+    created, the program starts by building a ClapTrap. Destruction is in reverse order.
+
+  * Same things for the attributes, but with different values this time:
+
+    1\) Name, which is passed as parameter to a constructor
+
+    2\) Hit points (100), represent the health of the ClapTrap
+
+    3\) Energy points (100)
+
+    4\) Attack damage (30)
+
+  * FragTrap has a special capacity too: `void highFivesGuys(void);`
+
+  * This member function displays a positive high fives request on the standard output.
+
+</details>
+
+<details>
+  <summary>Program Execution</summary>
+
+  * Execute make
+  * Execute the program by running `./ex02`
+
+  * Example of running the program:
+
+    ```text
+    [tb@localhost ex02]$ ./ex02
+    --------------------------------------------------
+    -- Battle music starts... --
+    ClapTrap Kuja has joined the battle!
+    FragTrap Kuja has joined the battle!
+    FragTrap Kuja asks for a high five!
+    FragTrap Kuja attacks Freya for 30 damage.
+    ClapTrap Kuja took 5 points of damage!
+    ClapTrap Kuja recovered 4 hit points!
+    ClapTrap Kuja took 120 points of damage!
+    ClapTrap Kuja is KO!
+    ClapTrap Kuja is KO.
+    ClapTrap Kuja is KO.
+    Game over...
+    FragTrap Kuja has left the battle!
+    ClapTrap Kuja has left the battle!
+    --------------------------------------------------
+    -- Try again? --
+    --------------------------------------------------
+    -- Battle music starts... --
+    ClapTrap Kuja has joined the battle!
+    FragTrap Kuja has joined the battle!
+    ClapTrap Puck has joined the battle!
+    FragTrap Puck has joined the battle!
+    ClapTrap Freya has joined the battle!
+    ClapTrap Fratley has joined the battle!
+    FragTrap Kuja asks for a high five!
+    Dragoons are not amused, and ignore Kuja's request...
+    FragTrap Kuja attacks Freya, causing 30 points of damage!
+    ClapTrap Freya took 30 points of damage!
+    ClapTrap Freya is KO!
+    FragTrap Kuja attacks Fratley, causing 30 points of damage!
+    ClapTrap Fratley took 30 points of damage!
+    ClapTrap Fratley is KO!
+    ClapTrap Puck took 30 points of damage!
+    FragTrap Kuja implodes.
+    ClapTrap Kuja took 99 points of damage!
+    ClapTrap Kuja recovered 18 hit points!
+    ClapTrap Kuja took 30 points of damage!
+    ClapTrap Kuja is KO!
+    ClapTrap Fratley has left the battle!
+    ClapTrap Freya has left the battle!
+    FragTrap Puck has left the battle!
+    ClapTrap Puck has left the battle!
+    FragTrap Kuja has left the battle!
+    ClapTrap Kuja has left the battle!
+    -- Congratulations! You won! --
+    --------------------------------------------------
+    [tb@localhost ex02]$
+    
+</details>
