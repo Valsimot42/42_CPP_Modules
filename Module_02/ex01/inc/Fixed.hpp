@@ -26,10 +26,10 @@ public:
 	Fixed &operator = (Fixed const &copy);
 	~Fixed();
 
-	int getRawBits() const;
-	void setRawBits(int const raw);
-	float toFloat() const;
-	int toInt() const;
+	int		getRawBits() const;
+	void	setRawBits(int const raw);
+	float	toFloat() const;
+	int		toInt() const;
 
 private:
 	int					_fixedPoint;
