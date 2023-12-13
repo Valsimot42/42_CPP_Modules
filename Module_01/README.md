@@ -424,8 +424,7 @@
 * Execute make
 * Execute the program by running `./ex05`
 
-<details>
-  <summary>Example</summary>
+* Example of running the program:
 
   ```text
   [tb@localhost ex05]$ ./ex05
@@ -441,5 +440,3 @@
   This is unexpected behavior from Harl.
   Harl has left the room.
   [tb@localhost ex05]$
-  ```
-</details>
