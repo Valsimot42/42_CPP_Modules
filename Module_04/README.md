@@ -320,3 +320,85 @@
 </details>
 
 ---
+<h3><b>¤ ex02 ¤</b></h3>
+
+<details>
+  <summary>Subject</summary>
+  
+  |<b>Exercise 02: Abstract class</b>|
+  |:----------------|
+  |Turn in directory: ex02/|
+  |Files to turn in: :  Files from previous exercise + *.cpp, *.{h, hpp}|
+  |Forbidden functions : None|
+
+  * Creating Animal objects doesn’t make sense after all. It’s true, they make no sound!
+
+  * To avoid any possible mistakes, the default Animal class should not be instantiable.
+    Fix the Animal class so nobody can instantiate it. Everything should work as before.
+
+  * If you want to, you can update the class name by adding a A prefix to Animal.
+
+</details>
+
+<details>
+  <summary>Program Execution</summary>
+
+  * Execute make
+  * Execute the program by running `./ex02`
+
+  * Example of running the program:
+
+    ```text
+    [tb@localhost ex02]$ ./ex02
+    --------------------------------------------------
+    // BASE TESTS //
+    --------------------------------------------------
+    Animal has been spotted.
+    Dog default constructor called
+    Brain was generated.
+    Animal has been spotted.
+    Cat has been spotted
+    Brain was generated.
+    Brain has been discarded.
+    What da dog doin'?.
+    Animal vanished.
+    Brain has been discarded.
+    Cat was ran over.
+    Animal vanished.
+    --------------------------------------------------
+    // ANIMAL IS ABSTRACT //
+    --------------------------------------------------
+    --------------------------------------------------
+    // DEEP COPIES //
+    --------------------------------------------------
+    Animal has been spotted.
+    Dog default constructor called
+    Brain was generated.
+     Animal copied another.
+    Animal copy constructor called
+    Brain was generated.
+    Weird Frankenstein shit is happening.
+    Dog was copied.
+    Dog was cloned.
+     Animal copied another.
+    Animal copy constructor called
+    Brain was generated.
+    Weird Frankenstein shit is happening.
+    Dog was copied.
+    Dog was cloned.
+    Sit!
+    Stay!
+    Roll!
+    Brain has been discarded.
+    What da dog doin'?.
+    Animal vanished.
+    Brain has been discarded.
+    What da dog doin'?.
+    Animal vanished.
+    Brain has been discarded.
+    What da dog doin'?.
+    Animal vanished.
+    --------------------------------------------------
+    [tb@localhost ex02]$
+
+</details>
