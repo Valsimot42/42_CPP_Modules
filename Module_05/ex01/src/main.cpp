@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:48:42 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/16 18:16:52 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:21:57 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,114 @@ int main() {
 	std::cout << blue << "---TEST: FORMS---" << reset << std::endl;
 
 	try {
-		Form Form1("Form 1", 10, 10);
-		Bureaucrat Alpha("Freya", 2);
+		Form Form1("Alexandria", 1, 1);
+		std::cout << yellow << Form1 << reset;
 
+		// {
+			// Form Kuja("Kuja", 0, 0);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 1, 0);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 0, 1);
+			// std::cout << red << Kuja << reset;
+		// }
 		
-		std::cout << green << Form1 << reset;
+		Form Form2("Cleyra", 150, 15);
+		std::cout << yellow << Form2 << reset;
+
+		// {
+			// Form Kuja("Kuja", 151, 151);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 150, 151);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 151, 150);
+			// std::cout << red << Kuja << reset;
+		// }
+
+		Form Form3("Lindblum", 40, 42);
+		std::cout << yellow << Form3 << reset;
+
+		// {
+			// Form Kuja("Kuja", -42, 42);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 42, -42);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", -42, -42);
+			// std::cout << red << Kuja << reset;
+		// }
+
+		Form Form4("Burmecia", 127, 127);
+		std::cout << yellow << Form4 << reset;
+
+		// {
+			// Form Kuja("Kuja", 128, "128");
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", '127', 128);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 128.10, 127);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 127, 128.10);
+			// std::cout << red << Kuja << reset;
+		// }
+
+
+		Form Form5("Treno", 0177, 0177); // Octal literal
+		std::cout << yellow << Form5 << reset;
+
+		// {
+			// Form Kuja("Kuja", 0178, 0178);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 0177, 0178);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 0178, 0177);
+			// std::cout << red << Kuja << reset;
+		// }
+		
+		Form Form6("Dali", '@', '@'); // Character literal
+		std::cout << yellow << Form6 << reset;
+
+		// {
+			// Form Kuja("Kuja", 'A', '€');
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", '€', 'A');
+			// std::cout << red << Kuja << reset;
+		// }
+		
+		Form Form7("Madain Sari", 0x4a, 0x4a); // Hexadecimal literal
+		std::cout << yellow << Form7 << reset;
+
+		// {
+			// Form Kuja("Kuja", 0x4b, 0x97);
+			// std::cout << red << Kuja << reset;
+
+			// Form Kuja("Kuja", 0x97, 0x4b);
+			// std::cout << red << Kuja << reset;
+		// }
+		
+		std::cout << blue << "---TEST: BUREAUCRATS---" << reset << std::endl;	
+
+		Bureaucrat Alpha("Freya", 41);
 		std::cout << green << Alpha << reset;
-
-		Form1.beSigned(&Alpha);
 		
-		Alpha.signForm(Form1.beSigned(&Alpha), "Form 1");
-
-		
+		Alpha.signForm(Form7.beSigned(&Alpha), "Madain Sari");
+		Alpha.signForm(Form6.beSigned(&Alpha), "Dali");
+		Alpha.signForm(Form5.beSigned(&Alpha), "Treno");
+		Alpha.signForm(Form4.beSigned(&Alpha), "Burmecia");
+		Alpha.signForm(Form3.beSigned(&Alpha), "Lindblum");
+		Alpha.signForm(Form2.beSigned(&Alpha), "Cleyra");
+		Alpha.signForm(Form1.beSigned(&Alpha), "Alexandria");
 	}
 
 	catch (std::exception &e) {

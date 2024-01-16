@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:14 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/16 17:50:26 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:53:11 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ bool Form::beSigned(Bureaucrat *bureaucrat) const {
 }
 
 const char *Form::GradeTooHighException::what() const throw() {
-    return ("Grade too high");
+    return ("Form cannot be signed. Grade too high.");
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
-    return ("Grade too low");
+    return ("Form cannot be signed. Grade too low.");
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &input) {
@@ -77,6 +77,6 @@ std::ostream &operator<<(std::ostream &out, const Form &input) {
     else
         out << "not signed";
     out << " and requires grade " << input.getSignGrade() << " to sign and grade "
-    << input.getExecuteGrade() << " to execute" << std::endl;
+    << input.getExecuteGrade() << " to execute." << std::endl;
     return (out);
 }
