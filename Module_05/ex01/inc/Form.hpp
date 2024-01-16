@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:24 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/16 17:38:01 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:50:00 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
     ~Form();
     
     std::string getName() const;
+    bool getIsSigned() const;
     int getSignGrade() const;
     int getExecuteGrade() const;
 

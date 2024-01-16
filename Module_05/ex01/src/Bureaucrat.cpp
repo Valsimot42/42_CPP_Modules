@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:49:44 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/16 15:56:37 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:09:28 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,13 @@ void Bureaucrat::decrementGrade() {
 	_grade++;
 	if (_grade > 150)
 		throw GradeTooLowException();
+}
+
+void Bureaucrat::signForm(bool isSigned, std::string formName) const {
+	if (isSigned)
+		std::cout << _name << " signs " << formName << std::endl;
+	else
+		std::cout << _name << " cannot sign " << formName << " because ";
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &input) {

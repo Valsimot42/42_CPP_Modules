@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:50:02 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/16 15:56:48 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:09:10 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
 
 	void incrementGrade();
 	void decrementGrade();
+	void signForm(bool isSigned, std::string formName) const;
 
 
 private:
