@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:24 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 12:44:21 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:51:19 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
     int getSignGrade() const;
     int getExecuteGrade() const;
 
-    bool beSigned(Bureaucrat *bureaucrat) const;
+    void beSigned(Bureaucrat const &bureaucrat);
 
 private:
     const std::string _name;

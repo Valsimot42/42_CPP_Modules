@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:48:42 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 12:38:04 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:46:27 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ int main() {
 		Alpha.signForm(Form2);
 		Alpha.signForm(Form3);
 		Alpha.signForm(Form1);
+		Alpha.signForm(Form4);
 		Alpha.signForm(Form4);
 		
 	}

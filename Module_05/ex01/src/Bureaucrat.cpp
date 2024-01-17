@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:49:44 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 12:34:56 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:50:13 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void Bureaucrat::signForm(Form &form) {
 	}
 	else {
 		std::cout << "Form " << form.getName() << " is signed." << std::endl;
-		form.beSigned(this);
+		form.beSigned(*this);
 	}
 }
 
