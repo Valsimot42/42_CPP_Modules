@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 10:29:53 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 10:48:14 by tbolkova         ###   ########.fr       */
+/*   Created: 2024/01/16 13:18:24 by tbolkova          #+#    #+#             */
+/*   Updated: 2024/01/17 12:58:31 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;   // Forward declaration
+
 class AForm {
 public:
     AForm(std::string name, int gradeToSign, int gradeToExecute);
     AForm(const AForm &copy);
     AForm &operator=(const AForm &copy);
     ~AForm();
-
+    
     std::string getName() const;
     bool getIsSigned() const;
     int getSignGrade() const;
     int getExecuteGrade() const;
 
-    bool beSigned(Bureaucrat *bureaucrat) const;
-
-    void execute (Bureaucrat const &executor) const;
+    void beSigned(Bureaucrat const &bureaucrat);
 
 private:
     const std::string _name;
@@ -42,12 +42,12 @@ class GradeTooHighException : public std::exception {
     public:
         virtual const char *what() const throw();
     };
-    
+
 class GradeTooLowException : public std::exception {
     public:
         virtual const char *what() const throw();
     };
-};  
+};
 
 std::ostream &operator<<(std::ostream &output, const AForm &input);
 

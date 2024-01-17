@@ -6,15 +6,13 @@
 #    By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 10:25:05 by tbolkova          #+#    #+#              #
-#    Updated: 2024/01/17 10:25:06 by tbolkova         ###   ########.fr        #
+#    Updated: 2024/01/17 13:00:25 by tbolkova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-
 # Compilation
 NAME = ex02
-CC = c++
+CC = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 DEBUG = -g -fsanitize=address
 
@@ -30,7 +28,8 @@ SRC =	main.cpp \
 		AForm.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp
+		PresidentialPardonForm.cpp \
+
 
 # OBJ Files
 OBJ = $(SRC:.cpp=.o)
