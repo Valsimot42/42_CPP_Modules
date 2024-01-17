@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:50:02 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 12:58:58 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:14:19 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 	void signForm(AForm &form);
+
+	void executeForm(AForm &form);
 
 
 private:

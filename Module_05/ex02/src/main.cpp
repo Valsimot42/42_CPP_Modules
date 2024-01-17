@@ -5,131 +5,159 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 12:48:42 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 12:59:12 by tbolkova         ###   ########.fr       */
+/*   Created: 2024/01/17 16:36:35 by tbolkova          #+#    #+#             */
+/*   Updated: 2024/01/17 17:56:24 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
-#include "../inc/AForm.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
+#include "../inc/RobotomyRequestForm.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
 
 int main() {
-	std::cout << blue << "---TEST: FORMS---" << reset << std::endl;
 
-	try {
-		AForm Form1("Alexandria", 1, 1);
-		std::cout << yellow << Form1 << reset;
+    std::cout << blue << "---TEST: SHRUBBERY FORM----" << reset << std::endl;
+    {
+        ShrubberyCreationForm shrub("Cleyra");
+        ShrubberyCreationForm shrubUnsigned("Iifa");
 
-		// {
-			// Form Kuja("Kuja", 0, 0);
-			// std::cout << red << Kuja << reset;
+        Bureaucrat Alpha("Freya", 75);
+        Bureaucrat Beta("Puck", 150);
 
-			// Form Kuja("Kuja", 1, 0);
-			// std::cout << red << Kuja << reset;
+        std::cout << green;
+        Alpha.signForm(shrub);
+        
+        std::cout << yellow;
+        Alpha.signForm(shrub);
+        
+        try {
+            std::cout << red;
+            Beta.signForm(shrubUnsigned);
+        } catch (std::exception &e){
+            std::cout << e.what() << std::endl;
+        }
+        std::cout << reset << std::endl;
+        try {
+            std::cout << red;
+            Beta.executeForm(shrub);
+            std::cout << reset;
+        } catch (std::exception &e){
+            std::cout << red << e.what() << std::endl;
+        }
+        std::cout << reset << std::endl;
 
-			// Form Kuja("Kuja", 0, 1);
-			// std::cout << red << Kuja << reset;
-		// }
-		
-		AForm Form2("Cleyra", 150, 15);
-		std::cout << yellow << Form2 << reset;
+        std::cout << yellow;
+        Alpha.executeForm(shrubUnsigned);
+        std::cout << green << std::endl;
+        Alpha.executeForm(shrub);
+        std::cout << yellow << shrub << reset << std::endl;
+    }
+    
+    std::cout << blue << "---TEST: ROBOTOMY FORM----" << reset << std::endl;
+    {
+        RobotomyRequestForm robo("Black Mage");
+        RobotomyRequestForm roboUnsigned(robo);
 
-		// {
-			// Form Kuja("Kuja", 151, 151);
-			// std::cout << red << Kuja << reset;
+        Bureaucrat Alpha("Garland", 1);
+        Bureaucrat Beta("Kuja", 75);
 
-			// Form Kuja("Kuja", 150, 151);
-			// std::cout << red << Kuja << reset;
+        std::cout << green;
+        Alpha.signForm(robo);
 
-			// Form Kuja("Kuja", 151, 150);
-			// std::cout << red << Kuja << reset;
-		// }
+        std::cout << yellow;
+        Alpha.signForm(robo);
+        
+        try {
+            std::cout << red;
+            Beta.signForm(roboUnsigned);
+        } catch (std::exception &e){
+            std::cout << e.what() << std::endl;
+        }
+        std::cout << reset << std::endl;
+        try {
+            std::cout << red;
+            Beta.executeForm(robo);
+            std::cout << reset;
+        } catch (std::exception &e){
+            std::cout << red << e.what() << std::endl;
+        }
+        std::cout << reset << std::endl;
 
-		AForm Form3("Lindblum", 40, 42);
-		std::cout << yellow << Form3 << reset;
+        std::cout << yellow;
+        Alpha.executeForm(roboUnsigned);
+        std::cout << green << std::endl;
+        Alpha.executeForm(robo);
+        std::cout << yellow << robo << reset << std::endl;
+    }
 
-		// {
-			// Form Kuja("Kuja", -42, 42);
-			// std::cout << red << Kuja << reset;
+    std::cout << blue << "---TEST: ROBOTOMY FORM----" << reset << std::endl;
+    {
+        PresidentialPardonForm pardon("James Sunderland");
+        PresidentialPardonForm pardonUnsigned(pardon);
 
-			// Form Kuja("Kuja", 42, -42);
-			// std::cout << red << Kuja << reset;
+        Bureaucrat bossMan("Boss", 1);
+        Bureaucrat middleMan("Mid", 75);
 
-			// Form Kuja("Kuja", -42, -42);
-			// std::cout << red << Kuja << reset;
-		// }
+        bossMan.signForm(pardon);
+        bossMan.signForm(pardon);
+        try {
+            middleMan.signForm(pardonUnsigned);
+        } catch (std::exception &e){
+            std::cout << e.what() << std::endl;
+        }
+        std::cout << std::endl;
+        try {
+            middleMan.executeForm(pardon);
+        } catch (std::exception &e){
+            std::cout << e.what() << std::endl;
+        }
+        std::cout << std::endl;
 
-		AForm Form4("Burmecia", 127, 127);
-		std::cout << yellow << Form4 << reset;
-
-		// {
-			// Form Kuja("Kuja", 128, "128");
-			// std::cout << red << Kuja << reset;
-
-			// Form Kuja("Kuja", '127', 128);
-			// std::cout << red << Kuja << reset;
-
-			// Form Kuja("Kuja", 128.10, 127);
-			// std::cout << red << Kuja << reset;
-
-			// Form Kuja("Kuja", 127, 128.10);
-			// std::cout << red << Kuja << reset;
-		// }
+        bossMan.executeForm(pardonUnsigned);
+        std::cout << std::endl;
+        bossMan.executeForm(pardon);
+        std::cout << pardon << std::endl;
+    }
 
 
-		AForm Form5("Treno", 0177, 0177); // Octal literal
-		std::cout << yellow << Form5 << reset;
 
-		// {
-			// Form Kuja("Kuja", 0178, 0178);
-			// std::cout << red << Kuja << reset;
 
-			// Form Kuja("Kuja", 0177, 0178);
-			// std::cout << red << Kuja << reset;
 
-			// Form Kuja("Kuja", 0178, 0177);
-			// std::cout << red << Kuja << reset;
-		// }
-		
-		AForm Form6("Dali", '@', '@'); // Character literal
-		std::cout << yellow << Form6 << reset;
+    
 
-		// {
-			// Form Kuja("Kuja", 'A', '€');
-			// std::cout << red << Kuja << reset;
+  
+    std::cout << "// PRESIDENTIAL PARDON FORM //" << std::endl;
+    {
+        PresidentialPardonForm pardon("James Sunderland");
+        PresidentialPardonForm pardonUnsigned(pardon);
 
-			// Form Kuja("Kuja", '€', 'A');
-			// std::cout << red << Kuja << reset;
-		// }
-		
-		AForm Form7("Madain Sari", 0x4a, 0x4a); // Hexadecimal literal
-		std::cout << yellow << Form7 << reset;
+        Bureaucrat bossMan("Boss", 1);
+        Bureaucrat middleMan("Mid", 75);
 
-		// {
-			// Form Kuja("Kuja", 0x4b, 0x97);
-			// std::cout << red << Kuja << reset;
+        bossMan.signForm(pardon);
+        bossMan.signForm(pardon);
+        try {
+            middleMan.signForm(pardonUnsigned);
+        } catch (std::exception &e){
+            std::cout << e.what() << std::endl;
+        }
+        std::cout << std::endl;
+        try {
+            middleMan.executeForm(pardon);
+        } catch (std::exception &e){
+            std::cout << e.what() << std::endl;
+        }
+        std::cout << std::endl;
 
-			// Form Kuja("Kuja", 0x97, 0x4b);
-			// std::cout << red << Kuja << reset;
-		// }
-		
-		std::cout << blue << "---TEST: BUREAUCRATS---" << reset << std::endl;	
-
-		Bureaucrat Alpha("Freya", 41);
-		std::cout << green << Alpha << reset;
-		
-		Alpha.signForm(Form2);
-		Alpha.signForm(Form3);
-		Alpha.signForm(Form1);
-		Alpha.signForm(Form4);
-		Alpha.signForm(Form4);
-		
-	}
-
-	catch (std::exception &e) {
-		std::cout << red << e.what() << reset << std::endl;
-	}
-
-	std::cout << blue << "---END---" << reset << std::endl;
+        bossMan.executeForm(pardonUnsigned);
+        std::cout << std::endl;
+        bossMan.executeForm(pardon);
+        std::cout << pardon << std::endl;
+    }
+    std::cout << "// ABSTRACT AFORM //" << std::endl;
+    {
+//        AForm form(); //Will not compile
+    }
+    return (0);
 }
-

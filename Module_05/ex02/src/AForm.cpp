@@ -6,15 +6,15 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:14 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 13:00:07 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:47:59 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/AForm.hpp"
 
 // Constructor
-AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : _name(name),
-_isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute, std::string target) : _name(name),
+_isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _target(target) {
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw AForm::GradeTooHighException();
     else if (gradeToSign > 150 || gradeToExecute > 150)
@@ -23,7 +23,7 @@ _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
 
 // Copy constructor
 AForm::AForm(const AForm &copy)  : _name(copy._name), _isSigned(copy._isSigned),
-_gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute) {
+_gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute), _target(copy._target) {
     *this = copy;
     return ;
 }
@@ -53,6 +53,18 @@ int AForm::getSignGrade() const {
 
 int AForm::getExecuteGrade() const {
     return (_gradeToExecute);
+}
+
+std::string AForm::getTarget() const {
+    return (_target);
+}
+
+void AForm::setIsSigned(bool boolean) {
+    _isSigned = boolean;
+}
+
+void AForm::setTarget(std::string target) {
+    _target = target;
 }
 
 void AForm::beSigned(Bureaucrat const &bureaucrat) {
