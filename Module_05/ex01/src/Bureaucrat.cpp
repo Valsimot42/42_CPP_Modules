@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:49:44 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/16 19:19:29 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:34:56 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,19 @@ void Bureaucrat::decrementGrade() {
 		throw GradeTooLowException();
 }
 
-void Bureaucrat::signForm(bool isSigned, std::string formName) const {
-	if (isSigned)
-		std::cout << green << _name << " signs " << formName << "." << reset << std::endl;
-	else
-		std::cout << red << _name << " cannot sign " << formName << " because she is not authorized." << reset << std::endl;
+void Bureaucrat::signForm(Form &form) {
+	if (form.getIsSigned()) {
+		std::cout << "Form " << form.getName() << " is already signed." << std::endl;
+		return ;
+	}
+	if (getGrade() > form.getSignGrade()) {
+		std::cout << "Form " << form.getName() << " cannot be signed. Grade too low." << std::endl;
+		return ;
+	}
+	else {
+		std::cout << "Form " << form.getName() << " is signed." << std::endl;
+		form.beSigned(this);
+	}
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &input) {

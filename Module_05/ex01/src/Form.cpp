@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:14 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/16 18:53:11 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:20:39 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ int Form::getExecuteGrade() const {
 }
 
 bool Form::beSigned(Bureaucrat *bureaucrat) const {
+    if (_isSigned) {
+        std::cout << "Form " << _name << " is already signed." << std::endl;
+        return (false);
+    }
     if (bureaucrat->getGrade() > _gradeToSign)
         return (false);
     else

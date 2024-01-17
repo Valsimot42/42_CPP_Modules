@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:48:42 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/16 19:21:57 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:38:04 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,13 +118,11 @@ int main() {
 		Bureaucrat Alpha("Freya", 41);
 		std::cout << green << Alpha << reset;
 		
-		Alpha.signForm(Form7.beSigned(&Alpha), "Madain Sari");
-		Alpha.signForm(Form6.beSigned(&Alpha), "Dali");
-		Alpha.signForm(Form5.beSigned(&Alpha), "Treno");
-		Alpha.signForm(Form4.beSigned(&Alpha), "Burmecia");
-		Alpha.signForm(Form3.beSigned(&Alpha), "Lindblum");
-		Alpha.signForm(Form2.beSigned(&Alpha), "Cleyra");
-		Alpha.signForm(Form1.beSigned(&Alpha), "Alexandria");
+		Alpha.signForm(Form2);
+		Alpha.signForm(Form3);
+		Alpha.signForm(Form1);
+		Alpha.signForm(Form4);
+		
 	}
 
 	catch (std::exception &e) {

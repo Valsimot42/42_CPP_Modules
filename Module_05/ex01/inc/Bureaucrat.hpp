@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:50:02 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/16 18:09:10 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:44:14 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 #include "Color.hpp"
 
+class Form;	// Forward declaration
 
 class Bureaucrat {
 public:
@@ -29,7 +31,7 @@ public:
 
 	void incrementGrade();
 	void decrementGrade();
-	void signForm(bool isSigned, std::string formName) const;
+	void signForm(Form &form);
 
 
 private:
