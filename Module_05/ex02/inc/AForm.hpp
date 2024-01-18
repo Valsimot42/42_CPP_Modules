@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:24 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 15:47:18 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/18 13:09:12 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
     AForm(std::string name, int gradeToSign, int gradeToExecute, std::string target);
     AForm(const AForm &copy);
     AForm &operator=(const AForm &copy);
-    ~AForm();
+    virtual ~AForm();
     
     std::string getName() const;
     bool getIsSigned() const;
