@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:48:42 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 12:46:27 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/18 13:55:15 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,12 +116,21 @@ int main() {
 		std::cout << blue << "---TEST: BUREAUCRATS---" << reset << std::endl;	
 
 		Bureaucrat Alpha("Freya", 41);
-		std::cout << green << Alpha << reset;
+		std::cout << green << Alpha;
 		
+		std::cout << green;
 		Alpha.signForm(Form2);
+		
+		std::cout << red;
 		Alpha.signForm(Form3);
+
+		std::cout << red;
 		Alpha.signForm(Form1);
+
+		std::cout << green;
 		Alpha.signForm(Form4);
+
+		std::cout << yellow;
 		Alpha.signForm(Form4);
 		
 	}
