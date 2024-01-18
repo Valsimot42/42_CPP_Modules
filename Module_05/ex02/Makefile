@@ -6,7 +6,7 @@
 #    By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 10:25:05 by tbolkova          #+#    #+#              #
-#    Updated: 2024/01/17 13:00:25 by tbolkova         ###   ########.fr        #
+#    Updated: 2024/01/18 11:57:19 by tbolkova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ clean:
 
 fclean: clean
 		@$(RM) $(NAME)
+		@find . -type f -name "*_shrubbery" -delete
 		clear
 		@echo "$(RED)All <$(NAME)> executables deleted.$(DEFAULT)"
 

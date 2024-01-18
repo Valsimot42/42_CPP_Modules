@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:36:35 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 17:56:24 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:38:48 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,72 +91,46 @@ int main() {
         std::cout << yellow << robo << reset << std::endl;
     }
 
-    std::cout << blue << "---TEST: ROBOTOMY FORM----" << reset << std::endl;
+    std::cout << blue << "---TEST: PARDON FORM----" << reset << std::endl;
     {
-        PresidentialPardonForm pardon("James Sunderland");
+        PresidentialPardonForm pardon("Steiner");
         PresidentialPardonForm pardonUnsigned(pardon);
 
-        Bureaucrat bossMan("Boss", 1);
-        Bureaucrat middleMan("Mid", 75);
+        Bureaucrat Alpha("Queen Brahne", 1);
+        Bureaucrat Beta("Beatrix", 29);
 
-        bossMan.signForm(pardon);
-        bossMan.signForm(pardon);
+        std::cout << green;
+        Alpha.signForm(pardon);
+
+        std::cout << yellow;
+        Alpha.signForm(pardon);
+        
         try {
-            middleMan.signForm(pardonUnsigned);
+            std::cout << red;
+            Beta.signForm(pardonUnsigned);
         } catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
-        std::cout << std::endl;
+        std::cout << reset << std::endl;
         try {
-            middleMan.executeForm(pardon);
+            std::cout << red;
+            Beta.executeForm(pardon);
+            std::cout << reset;
         } catch (std::exception &e){
-            std::cout << e.what() << std::endl;
+            std::cout << red << e.what() << std::endl;
         }
-        std::cout << std::endl;
+        std::cout << reset << std::endl;
 
-        bossMan.executeForm(pardonUnsigned);
-        std::cout << std::endl;
-        bossMan.executeForm(pardon);
-        std::cout << pardon << std::endl;
+        std::cout << yellow;
+        Alpha.executeForm(pardonUnsigned);
+        std::cout << green << std::endl;
+        Alpha.executeForm(pardon);
+        std::cout << yellow << pardon << reset << std::endl;
     }
 
-
-
-
-
-    
-
-  
-    std::cout << "// PRESIDENTIAL PARDON FORM //" << std::endl;
+    std::cout << blue << "----TEST: ABSTRACT FORM----" << reset << std::endl;
     {
-        PresidentialPardonForm pardon("James Sunderland");
-        PresidentialPardonForm pardonUnsigned(pardon);
-
-        Bureaucrat bossMan("Boss", 1);
-        Bureaucrat middleMan("Mid", 75);
-
-        bossMan.signForm(pardon);
-        bossMan.signForm(pardon);
-        try {
-            middleMan.signForm(pardonUnsigned);
-        } catch (std::exception &e){
-            std::cout << e.what() << std::endl;
-        }
-        std::cout << std::endl;
-        try {
-            middleMan.executeForm(pardon);
-        } catch (std::exception &e){
-            std::cout << e.what() << std::endl;
-        }
-        std::cout << std::endl;
-
-        bossMan.executeForm(pardonUnsigned);
-        std::cout << std::endl;
-        bossMan.executeForm(pardon);
-        std::cout << pardon << std::endl;
-    }
-    std::cout << "// ABSTRACT AFORM //" << std::endl;
-    {
+        std::cout << green << "Nothing will show here because abstract classes cannot be compiled." << reset << std::endl;
 //        AForm form(); //Will not compile
     }
     return (0);
