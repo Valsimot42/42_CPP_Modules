@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:55:18 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 16:35:17 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 12:46:05 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ public:
     PresidentialPardonForm(std::string target);
     PresidentialPardonForm(const PresidentialPardonForm &copy);
     PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
-    virtual ~PresidentialPardonForm();
+    ~PresidentialPardonForm();
 
-    virtual void beExecuted(Bureaucrat const &bureaucrat);
+    void beExecuted(Bureaucrat const &bureaucrat);
 };
 
 #endif

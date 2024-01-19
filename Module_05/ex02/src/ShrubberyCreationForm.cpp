@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:05:07 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/18 12:37:27 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:45:42 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void ShrubberyCreationForm::beExecuted(Bureaucrat const &bureaucrat) {
                 "                `}\n"
                 "                 {"
                 << std::endl;
+        outfile.close();
     }
     else
         throw AForm::GradeTooLowException();

@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:55:23 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 14:13:18 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 12:45:18 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ public:
     ShrubberyCreationForm(std::string target);
     ShrubberyCreationForm(const ShrubberyCreationForm &copy);
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
-    virtual ~ShrubberyCreationForm();
+    ~ShrubberyCreationForm();
 
-    virtual void beExecuted(Bureaucrat const &bureaucrat);
+    void beExecuted(Bureaucrat const &bureaucrat);
 };
 
 #endif

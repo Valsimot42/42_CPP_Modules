@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbolkova <tbolkova@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:48:42 by tbolkova          #+#    #+#             */
-/*   Updated: 2023/12/16 12:48:42 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:10:25 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int main() {
 		Bureaucrat Vivi("Vivi", 150);
 		std::cout << green << Vivi << reset;
 
-//		Bureaucrat Kuja("Kuja", 185);
-//		std::cout << red << Kuja << reset;
+		// Bureaucrat Kuja("Kuja", 185);
+		// std::cout << red << Kuja << reset;
 
 
 		Bureaucrat Steiner("Steiner", 42);

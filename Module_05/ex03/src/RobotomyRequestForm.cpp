@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:32:16 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 16:34:00 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:09:47 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,13 @@ void RobotomyRequestForm::beExecuted(Bureaucrat const &bureaucrat) {
         return ;
     }
     if (bureaucrat.getGrade() <= 45) {
-        std::cout << "Brrrrrr " << getTarget() << " has been robotomized successfully 50% of the time." << std::endl;
+        for(int i = 1; i <= 4; i++) {
+            if (i % 2 == 0)
+                std::cout << green << "Vrrrrrrrr, robotomy process successful." << std::endl;
+            else
+                std::cout << red << "Vrrrrrrrr, robotomy process failed." << std::endl;
+        }
     }
     else
-        std::cout << "Brrrrrr " << getTarget() << " has not been robotomized successfully." << std::endl;
+        std::cout << getTarget() << " has not been able to undergo robotomy process." << std::endl;
 }

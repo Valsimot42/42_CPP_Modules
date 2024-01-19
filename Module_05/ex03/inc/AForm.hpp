@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:24 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/18 13:08:28 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:08:56 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ class GradeTooLowException : public std::exception {
 private:
     const std::string _name;
     bool _isSigned;
-    int _gradeToSign;
-    int _gradeToExecute;
+    const int _gradeToSign;
+    const int _gradeToExecute;
     std::string _target;
     
 };

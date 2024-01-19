@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:24 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 12:51:19 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:16:26 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ public:
 private:
     const std::string _name;
     bool _isSigned;
-    int _gradeToSign;
-    int _gradeToExecute;
+    const int _gradeToSign;
+    const int _gradeToExecute;
 
 class GradeTooHighException : public std::exception {
     public:
