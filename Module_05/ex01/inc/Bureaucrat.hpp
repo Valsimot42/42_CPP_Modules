@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:50:02 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 12:44:14 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:25:55 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ private:
 
 class GradeTooHighException : public std::exception {
 	public:
-		virtual const char *what() const throw();
+		const char *what() const throw();
 	};
 
 class GradeTooLowException : public std::exception {
 	public:
-		virtual const char *what() const throw();
+		const char *what() const throw();
 	};
 };
 

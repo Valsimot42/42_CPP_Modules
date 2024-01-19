@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:05:07 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/18 17:09:06 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:46:02 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
     return ;
 }
 
-void ShrubberyCreationForm::beExecuted(Bureaucrat const &bureaucrat) {
+void ShrubberyCreationForm::beExecuted(Bureaucrat const &bureaucrat) const {
     if (!getIsSigned()) {
         std::cout << "This form is not yet signed." << std::endl;
-        return ;
     }
-    if (bureaucrat.getGrade() <= getExecuteGrade()) {
+    else if (bureaucrat.getGrade() <= getExecuteGrade()) {
         std::ofstream outfile((getTarget() + "_shrubbery").c_str());
         outfile <<
                 "            # #### ####\n"

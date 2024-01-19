@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:36:35 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/19 12:43:32 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:06:36 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,80 +17,210 @@
 #include "../inc/Intern.hpp"
 
 int main() {
+//Shrubbery
     std::cout << blue << "----TEST: SHRUBBERY FORM----" << reset << std::endl;
-    {
-        Bureaucrat Alpha("Fratley", 1);
-        Intern someRandomIntern;
-        AForm* form = someRandomIntern.makeForm("ShrubberyCreationForm", "Freya");
-        //AForm* form = someRandomIntern.makeForm("", "Freya");
-        //AForm* form = someRandomIntern.makeForm("123453345", "Freya");
+    
+    Intern Puck1;
+    AForm* form1;
+    form1 = Puck1.makeForm("ShrubberyCreationForm", "Freya");   // Correct
+    //form1 = Puck1.makeForm("WrongForm", "Freya");               // Wrong
+    //form1 = Puck1.makeForm("", "Freya");                        // Empty
 
-        if (form != NULL) {
-            std::cout << yellow << *form << reset << std::endl;
-
-            std::cout << green;
-            Alpha.signForm(*form);
-
-            std::cout << green;
-            Alpha.executeForm(*form);
-
-            std::cout << yellow << *form << std::endl;
-
-            delete form;
+    if (form1 != NULL) {
+        std::cout << yellow << *form1 << reset << std::endl;
+        
+        std::cout << blue << "v----1----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 0);
+            Alpha.signForm(*form1);
         }
-        else {
-            std::cerr << red << "Error: Unable to create the form." << reset << std::endl;
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
         }
+
+        std::cout << blue << "v----2----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 151);
+            Alpha.signForm(*form1);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----3----v" << reset << std::endl;
+        try {
+            std::cout << red;
+            Bureaucrat Alpha("Fratley", 150);
+            Alpha.signForm(*form1);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----4----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 145);
+            std::cout << green;
+            Alpha.signForm(*form1);
+            std::cout << red;
+            Alpha.executeForm(*form1);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----5----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 137);
+            std::cout << yellow;
+            Alpha.signForm(*form1);
+            std::cout << green;
+            Alpha.executeForm(*form1);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+    } else {
+        std::cerr << red << "Error: Form is NULL-pointer." << reset << std::endl;
     }
-
+    std::cout << std::endl;
+    
+//Robotomy
     std::cout << blue << "----TEST: ROBOTOMY FORM----" << reset << std::endl;
-    {
-        Bureaucrat Alpha("Fratley", 1);
-        Intern someRandomIntern;
-        AForm* form = someRandomIntern.makeForm("RobotomyRequestForm", "Freya");
-        //AForm* form = someRandomIntern.makeForm("", "Freya");
-        //AForm* form = someRandomIntern.makeForm("eoruthih", "Freya");
 
-        if (form != NULL) {
-            std::cout << yellow << *form << reset << std::endl;
+    Intern Puck2;
+    AForm* form2;
+    form2 = Puck2.makeForm("RobotomyRequestForm", "Freya");   // Correct
+    //form2 = Puck2.makeForm("WrongForm", "Freya");             // Wrong
+    //form2 = Puck2.makeForm("", "Freya");                      // Empty
 
-            std::cout << green;
-            Alpha.signForm(*form);
-
-            std::cout << green;
-            Alpha.executeForm(*form);
-
-            std::cout << yellow << *form << std::endl;
-
-            delete form;
-        } else {
-            std::cerr << red << "Error: Unable to create the form." << reset << std::endl;
+    if (form2 != NULL) {
+        std::cout << yellow << *form2 << reset << std::endl;
+        
+        std::cout << blue << "v----1----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 0);
+            Alpha.signForm(*form2);
         }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----2----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 151);
+            Alpha.signForm(*form2);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----3----v" << reset << std::endl;
+        try {
+            std::cout << red;
+            Bureaucrat Alpha("Fratley", 80);
+            Alpha.signForm(*form2);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----4----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 53);
+            std::cout << green;
+            Alpha.signForm(*form2);
+            std::cout << red;
+            Alpha.executeForm(*form2);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----5----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 25);
+            std::cout << yellow;
+            Alpha.signForm(*form2);
+            std::cout << green;
+            Alpha.executeForm(*form2);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+    } else {
+        std::cerr << red << "Error: Form is NULL-pointer." << reset << std::endl;
     }
+    std::cout << std::endl;
 
+//Presidential   
     std::cout << blue << "----TEST: PRESIDENTIAL FORM----" << reset << std::endl;
-    {
-        Bureaucrat Alpha("Fratley", 1);
-        Intern someRandomIntern;
-        AForm* form = someRandomIntern.makeForm("PresidentialPardonForm", "Freya");
-        //AForm* form = someRandomIntern.makeForm("", "Freya");
-        //AForm* form = someRandomIntern.makeForm("a5fjy3o9h", "Freya");
 
-        if (form != NULL) {
-            std::cout << yellow << *form << reset << std::endl;
+    Intern Puck3;
+    AForm* form3;
+    form3 = Puck3.makeForm("PresidentialPardonForm", "Freya");    // Correct
+    //form3 = Puck3.makeForm("WrongForm", "Freya");                 // Wrong
+    //form3 = Puck3.makeForm("", "Freya");                          // Empty
 
-            std::cout << green;
-            Alpha.signForm(*form);
-
-            std::cout << green;
-            Alpha.executeForm(*form);
-
-            std::cout << yellow << *form << std::endl;
-
-            delete form;
-        } else {
-            std::cerr << red << "Error: Unable to create the form." << reset << std::endl;
+    if (form3 != NULL) {
+        std::cout << yellow << *form3 << reset << std::endl;
+        
+        std::cout << blue << "v----1----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 0);
+            Alpha.signForm(*form3);
         }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----2----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 151);
+            Alpha.signForm(*form3);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----3----v" << reset << std::endl;
+        try {
+            std::cout << red;
+            Bureaucrat Alpha("Fratley", 30);
+            Alpha.signForm(*form3);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << reset << std::endl;
+        }
+
+        std::cout << blue << "v----4----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 9);
+            std::cout << green;
+            Alpha.signForm(*form3);
+            std::cout << red;
+            Alpha.executeForm(*form3);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << std::endl;
+        }
+
+        std::cout << blue << "v----5----v" << reset << std::endl;
+        try {
+            Bureaucrat Alpha("Fratley", 1);
+            std::cout << yellow;
+            Alpha.signForm(*form3);
+            std::cout << green;
+            Alpha.executeForm(*form3);
+        }
+        catch (const std::exception& e) {
+            std::cout << red << "Exception caught: " << e.what() << std::endl;
+        }
+
+    } else {
+        std::cerr << red << "Error: Form is NULL-pointer." << reset << std::endl;
     }
 
     return (0);

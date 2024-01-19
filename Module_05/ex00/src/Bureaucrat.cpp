@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbolkova <tbolkova@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:49:44 by tbolkova          #+#    #+#             */
-/*   Updated: 2023/12/16 12:49:44 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:20:59 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-	_grade--;
-	if (_grade < 1)
+	if (_grade - 1 < 1)
 		throw GradeTooHighException();
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-	_grade++;
-	if (_grade > 150)
+	if (_grade + 1 > 150)
 		throw GradeTooLowException();
+	_grade++;
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &input) {

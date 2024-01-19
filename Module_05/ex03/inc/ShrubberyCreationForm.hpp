@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:55:23 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/19 12:45:18 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:45:30 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
     ~ShrubberyCreationForm();
 
-    void beExecuted(Bureaucrat const &bureaucrat);
+    void beExecuted(Bureaucrat const &bureaucrat) const;
 };
 
 #endif

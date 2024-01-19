@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:55:20 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/18 15:25:40 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:34:46 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
     RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
     ~RobotomyRequestForm();
 
-    void beExecuted(Bureaucrat const &bureaucrat);
+    void beExecuted(Bureaucrat const &bureaucrat) const;
 };
 
 #endif

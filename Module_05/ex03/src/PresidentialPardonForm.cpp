@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:59:19 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 16:35:55 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:46:22 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,11 @@ PresidentialPardonForm::~PresidentialPardonForm() {
     return ;
 }
 
-void PresidentialPardonForm::beExecuted(Bureaucrat const &bureaucrat) {
+void PresidentialPardonForm::beExecuted(Bureaucrat const &bureaucrat) const {
     if (!getIsSigned()) {
         std::cout << "This form is not yet signed." << std::endl;
-        return ;
     }
-    if (bureaucrat.getGrade() <= 5) {
+    else if (bureaucrat.getGrade() <= 5) {
         std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
     }
     else

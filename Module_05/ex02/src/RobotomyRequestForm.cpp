@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:32:16 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/19 13:05:26 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:35:14 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,11 @@ RobotomyRequestForm::~RobotomyRequestForm() {
     return ;
 }
 
-void RobotomyRequestForm::beExecuted(Bureaucrat const &bureaucrat) {
+void RobotomyRequestForm::beExecuted(Bureaucrat const &bureaucrat) const {
     if (!getIsSigned()) {
         std::cout << "This form is not yet signed." << std::endl;
-        return ;
     }
-    if (bureaucrat.getGrade() <= 45) {
+    else if (bureaucrat.getGrade() <= 45) {
         for(int i = 1; i <= 10; i++) {
             if (i % 2 == 0)
                 std::cout << "Vrrrrrrrr, robotomy process successful." << std::endl;

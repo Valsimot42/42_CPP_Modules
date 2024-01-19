@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:14 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 15:47:59 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:36:49 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute), _target(
     return ;
 }
 
-// Overload constructor
+// Overload operator
 AForm &AForm::operator=(const AForm &copy) {
     _isSigned = copy._isSigned;
     return (*this);
@@ -70,9 +70,8 @@ void AForm::setTarget(std::string target) {
 void AForm::beSigned(Bureaucrat const &bureaucrat) {
     if (_isSigned) {
         std::cout << "This form is already signed." << std::endl;
-        return;
     }
-    if (bureaucrat.getGrade() <= _gradeToSign)
+    else if (bureaucrat.getGrade() <= _gradeToSign)
         _isSigned = true;
     else
         throw AForm::GradeTooLowException();

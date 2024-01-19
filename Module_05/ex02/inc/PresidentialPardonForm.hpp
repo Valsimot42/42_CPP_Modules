@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:55:18 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/18 15:22:51 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:34:39 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
     PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
     ~PresidentialPardonForm();
 
-    void beExecuted(Bureaucrat const &bureaucrat);
+    void beExecuted(Bureaucrat const &bureaucrat) const;
 };
 
 #endif

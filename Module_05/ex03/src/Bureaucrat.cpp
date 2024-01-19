@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:49:44 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 14:14:42 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:27:30 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy): _name(copy._name) {
 	return ;
 }
 
-// Overload constructor
+// Overload operator
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy) {
 	_grade = copy._grade;
 	return (*this);
@@ -54,15 +54,15 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-	_grade--;
-	if (_grade < 1)
+	if (_grade == 1)
 		throw GradeTooHighException();
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-	_grade++;
-	if (_grade > 150)
+	if (_grade == 150)
 		throw GradeTooLowException();
+	_grade++;
 }
 
 void Bureaucrat::signForm(AForm &form) {
@@ -83,15 +83,14 @@ void Bureaucrat::signForm(AForm &form) {
 void Bureaucrat::executeForm(AForm &form) {
     if (!form.getIsSigned()) {
         std::cout << "This form is not signed yet." << std::endl;
-        return;
     }
-    if (_grade <= form.getExecuteGrade()) {
+    else if (_grade <= form.getExecuteGrade()) {
         std::cout << _name << " executed " << form.getName() << "." << std::endl;
+		form.beExecuted(*this);
     } else {
         std::cout << _name << " could not execute " << form.getName() <<
                   ". Clearance level is not high enough." << std::endl;
     }
-    form.beExecuted(*this);
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &input) {

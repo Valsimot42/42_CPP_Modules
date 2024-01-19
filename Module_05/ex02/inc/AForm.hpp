@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:24 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/19 13:08:47 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:38:14 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
 
     void beSigned(Bureaucrat const &bureaucrat);
 
-    virtual void beExecuted(Bureaucrat const &bureaucrat) = 0;
+    virtual void beExecuted(Bureaucrat const &bureaucrat) const = 0;
 
 class GradeTooHighException : public std::exception {
     public:
