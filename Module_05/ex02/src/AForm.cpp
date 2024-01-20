@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:14 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/20 12:36:04 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:50:50 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute), _target(
     return ;
 }
 
-// Overload constructor
+// Overload operator
 AForm &AForm::operator=(const AForm &copy) {
     _isSigned = copy._isSigned;
     return (*this);

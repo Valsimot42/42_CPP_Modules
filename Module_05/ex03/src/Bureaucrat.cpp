@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:49:44 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/20 11:56:08 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:51:34 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,42 +54,40 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-	if (_grade == 1)
-		throw GradeTooHighException();
 	_grade--;
+	if (_grade < 1)
+		throw GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade() {
-	if (_grade == 150)
-		throw GradeTooLowException();
 	_grade++;
+	if (_grade > 150)
+		throw GradeTooLowException();
 }
 
 void Bureaucrat::signForm(AForm &form) {
-	if (form.getIsSigned()) {
-		std::cout << "Form " << form.getName() << " is already signed." << std::endl;
-		return ;
-	}
 	if (getGrade() > form.getSignGrade()) {
-		std::cout << "Form " << form.getName() << " cannot be signed. Grade too low." << std::endl;
-		return ;
+		std::cout << red << "Form " << form.getName() << " cannot be signed. Grade too low." << reset << std::endl;
+	}
+	else if (form.getIsSigned()) {
+		std::cout << yellow << "Form " << form.getName() << " is already signed." << reset << std::endl;
 	}
 	else {
-		std::cout << "Form " << form.getName() << " is signed." << std::endl;
+		std::cout << green << "Form " << form.getName() << " is signed." << reset << std::endl;
 		form.beSigned(*this);
 	}
 }
 
 void Bureaucrat::executeForm(AForm &form) {
     if (!form.getIsSigned()) {
-        std::cout << "This form is not signed yet." << std::endl;
+        std::cout << yellow << "This form is not signed yet." << reset << std::endl;
     }
     else if (_grade <= form.getExecuteGrade()) {
-        std::cout << _name << " executed " << form.getName() << "." << std::endl;
+        std::cout << green << _name << " executed " << form.getName() << "." << reset << std::endl;
 		form.beExecuted(*this);
     } else {
-        std::cout << _name << " could not execute " << form.getName() <<
-                  ". Clearance level is not high enough." << std::endl;
+        std::cout << red << _name << " could not execute " << form.getName() <<
+                  ". Clearance level is not high enough." << reset << std::endl;
     }
 }
 

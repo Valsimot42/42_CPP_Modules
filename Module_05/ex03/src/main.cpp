@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:36:35 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/19 18:06:36 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:56:56 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int main() {
 
         std::cout << blue << "v----3----v" << reset << std::endl;
         try {
-            std::cout << red;
             Bureaucrat Alpha("Fratley", 150);
             Alpha.signForm(*form1);
         }
@@ -60,9 +59,7 @@ int main() {
         std::cout << blue << "v----4----v" << reset << std::endl;
         try {
             Bureaucrat Alpha("Fratley", 145);
-            std::cout << green;
             Alpha.signForm(*form1);
-            std::cout << red;
             Alpha.executeForm(*form1);
         }
         catch (const std::exception& e) {
@@ -72,9 +69,7 @@ int main() {
         std::cout << blue << "v----5----v" << reset << std::endl;
         try {
             Bureaucrat Alpha("Fratley", 137);
-            std::cout << yellow;
             Alpha.signForm(*form1);
-            std::cout << green;
             Alpha.executeForm(*form1);
         }
         catch (const std::exception& e) {
@@ -118,7 +113,6 @@ int main() {
 
         std::cout << blue << "v----3----v" << reset << std::endl;
         try {
-            std::cout << red;
             Bureaucrat Alpha("Fratley", 80);
             Alpha.signForm(*form2);
         }
@@ -129,9 +123,7 @@ int main() {
         std::cout << blue << "v----4----v" << reset << std::endl;
         try {
             Bureaucrat Alpha("Fratley", 53);
-            std::cout << green;
             Alpha.signForm(*form2);
-            std::cout << red;
             Alpha.executeForm(*form2);
         }
         catch (const std::exception& e) {
@@ -141,9 +133,7 @@ int main() {
         std::cout << blue << "v----5----v" << reset << std::endl;
         try {
             Bureaucrat Alpha("Fratley", 25);
-            std::cout << yellow;
             Alpha.signForm(*form2);
-            std::cout << green;
             Alpha.executeForm(*form2);
         }
         catch (const std::exception& e) {
@@ -187,7 +177,6 @@ int main() {
 
         std::cout << blue << "v----3----v" << reset << std::endl;
         try {
-            std::cout << red;
             Bureaucrat Alpha("Fratley", 30);
             Alpha.signForm(*form3);
         }
@@ -198,9 +187,7 @@ int main() {
         std::cout << blue << "v----4----v" << reset << std::endl;
         try {
             Bureaucrat Alpha("Fratley", 9);
-            std::cout << green;
             Alpha.signForm(*form3);
-            std::cout << red;
             Alpha.executeForm(*form3);
         }
         catch (const std::exception& e) {
@@ -210,9 +197,7 @@ int main() {
         std::cout << blue << "v----5----v" << reset << std::endl;
         try {
             Bureaucrat Alpha("Fratley", 1);
-            std::cout << yellow;
             Alpha.signForm(*form3);
-            std::cout << green;
             Alpha.executeForm(*form3);
         }
         catch (const std::exception& e) {
