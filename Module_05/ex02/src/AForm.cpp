@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:14 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/17 15:47:59 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:36:04 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,9 @@ void AForm::setTarget(std::string target) {
 
 void AForm::beSigned(Bureaucrat const &bureaucrat) {
     if (_isSigned) {
-        std::cout << "This form is already signed." << std::endl;
-        return;
+        std::cout << yellow << "This form is already signed." << reset << std::endl;
     }
-    if (bureaucrat.getGrade() <= _gradeToSign)
+    else if (bureaucrat.getGrade() <= _gradeToSign)
         _isSigned = true;
     else
         throw AForm::GradeTooLowException();
