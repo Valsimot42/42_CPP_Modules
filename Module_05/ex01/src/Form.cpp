@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:14 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/19 14:26:32 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:44:00 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,9 @@ int Form::getExecuteGrade() const {
 
 void Form::beSigned(Bureaucrat const &bureaucrat) {
     if (_isSigned) {
-        std::cout << "This form is already signed." << std::endl;
-        return;
+        std::cout << yellow << "This form is already signed." << reset << std::endl;
     }
-    if (bureaucrat.getGrade() <= _gradeToSign)
+    else if (bureaucrat.getGrade() <= _gradeToSign)
         _isSigned = true;
     else
         throw Form::GradeTooLowException();

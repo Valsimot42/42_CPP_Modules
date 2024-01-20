@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 12:49:44 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/19 14:29:31 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:45:16 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ void Bureaucrat::decrementGrade() {
 }
 
 void Bureaucrat::signForm(Form &form) {
-	if (form.getIsSigned()) {
-		std::cout << "Form " << form.getName() << " is already signed." << std::endl;
+	if (getGrade() > form.getSignGrade()) {
+		std::cout << red << "Form " << form.getName() << " cannot be signed. Grade too low." << reset << std::endl;
 	}
-	else if (getGrade() > form.getSignGrade()) {
-		std::cout << "Form " << form.getName() << " cannot be signed. Grade too low." << std::endl;
+	else if (form.getIsSigned()) {
+		std::cout << yellow << "Form " << form.getName() << " is already signed." << reset << std::endl;
 	}
 	else {
-		std::cout << "Form " << form.getName() << " is signed." << std::endl;
+		std::cout << green << "Form " << form.getName() << " is signed." << reset << std::endl;
 		form.beSigned(*this);
 	}
 }
