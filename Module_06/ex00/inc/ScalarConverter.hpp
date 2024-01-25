@@ -6,15 +6,30 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:19:56 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/24 12:44:04 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:21:31 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 
+#include <string>
+#include <sstream>
 #include <iostream>
-#include <stdlib.h>
+#include <cctype>
+#include <cstring>
+#include <cmath>
+#include <stdexcept>
+
+#define MIN_INT -2147483648
+#define MAX_INT  2147483647
+
+#define POSITIVE_FLOAT_INFINITY (1.0f/0.0f)
+#define NEGATIVE_FLOAT_INFINITY (-1.0f/0.0f)
+
+#define MY_NAN (0.0 / 0.0) // Define NaN as a division by zero result (platform-dependent)
+#define MY_NANF (0.0f / 0.0f) // Define NaN as a division by zero result (platform-dependent)
+
 
 class ScalarConverter {
 private:
