@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:19:56 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/25 17:21:31 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:35:52 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 #include <cmath>
 #include <stdexcept>
 
+#define MAX_INT 2147483647
 #define MIN_INT -2147483648
-#define MAX_INT  2147483647
 
 #define POSITIVE_FLOAT_INFINITY (1.0f/0.0f)
 #define NEGATIVE_FLOAT_INFINITY (-1.0f/0.0f)

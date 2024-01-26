@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:26:58 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/25 17:26:31 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:16:52 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ bool ScalarConverter::isInt(const std::string &argument) {
     int result;
     iss >> result;
     if (iss.fail() || !iss.eof()) {
+        return (false);
+    }
+    if (result < MIN_INT && result > MAX_INT) {
         return (false);
     }
     return (true);
@@ -76,9 +79,11 @@ bool ScalarConverter::isValidDigit(const std::string &argument) {
 }
 
 bool ScalarConverter::isValidChar(const std::string &argument) {
-    if (argument.length() == 1 && isChar(argument))
-        return (true);
-    return (false);
+    if (argument.length() == 1) {
+        char c = argument[0];
+        return (isprint(c) && c != '0');
+    }
+    return false;
 }
 
 bool ScalarConverter::isValidInput(const std::string &argument) {
@@ -92,6 +97,8 @@ bool ScalarConverter::isValidInput(const std::string &argument) {
 int ScalarConverter::convertToInt(const std::string &argument) {
     char *ptr;
     int result = strtol(argument.c_str(), &ptr, 10);
+    if (result > MAX_INT || result < MIN_INT)
+        std::cerr << "Overflow error" << std::endl;
     return result;
 }
 
@@ -134,16 +141,14 @@ void ScalarConverter::printChar(const std::string convert) {
 void ScalarConverter::printInt(const std::string convert) {
     if (convert == "nan" || convert == "nanf" || convert == "-inf" || convert == "inf" || convert == "-inff" || convert == "inff") {
         std::cout << "int: impossible" << std::endl;
-        return ;
     }
     else if (isChar(convert)) {
         std::cout << "int: " << static_cast<int>(convert[0]) << std::endl;
-        return ;
     }
     else if (isInt(convert)) {
         std::cout << "int: " << convert << std::endl;
     }
-    else if (convertToFloat(convert) >= MIN_INT && convertToFloat(convert) <= MAX_INT) {
+    else if (convertToFloat(convert) >= static_cast<float>(MIN_INT) && convertToFloat(convert) <= static_cast<float>(MAX_INT)) {
         std::cout << "int: " << static_cast<int>(convertToFloat(convert)) << std::endl;
     }
     else
@@ -171,9 +176,8 @@ void ScalarConverter::printFloat(const std::string convert) {
 }
 
 void ScalarConverter::printDouble(const std::string convert) {
-    if (convert == "nan" || convert == "nanf") {
+    if (convert == "nan" || convert == "nanf")
         std::cout << "double: nan" << std::endl;
-    }
     else if (convert == "-inf" || convert == "-inff") {
         std::cout << "double: -inf" << std::endl;
     }
@@ -191,6 +195,7 @@ void ScalarConverter::printDouble(const std::string convert) {
             std::cout << "double: " << static_cast<double>(convertToFloat(convert)) << std::endl;
         else
             std::cout << "double: " << convertToDouble(convert) << std::endl;
+        
     }
 }
 
