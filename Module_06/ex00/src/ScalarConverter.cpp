@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:26:58 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/26 14:16:52 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/26 17:34:34 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool ScalarConverter::isInt(const std::string &argument) {
     if (iss.fail() || !iss.eof()) {
         return (false);
     }
-    if (result < MIN_INT && result > MAX_INT) {
+    if (result < INT_MIN && result > INT_MAX) {
         return (false);
     }
     return (true);
@@ -97,7 +97,7 @@ bool ScalarConverter::isValidInput(const std::string &argument) {
 int ScalarConverter::convertToInt(const std::string &argument) {
     char *ptr;
     int result = strtol(argument.c_str(), &ptr, 10);
-    if (result > MAX_INT || result < MIN_INT)
+    if (result > INT_MAX || result < INT_MIN)
         std::cerr << "Overflow error" << std::endl;
     return result;
 }
@@ -148,7 +148,7 @@ void ScalarConverter::printInt(const std::string convert) {
     else if (isInt(convert)) {
         std::cout << "int: " << convert << std::endl;
     }
-    else if (convertToFloat(convert) >= static_cast<float>(MIN_INT) && convertToFloat(convert) <= static_cast<float>(MAX_INT)) {
+    else if (convertToFloat(convert) >= static_cast<float>(INT_MIN) && convertToFloat(convert) <= static_cast<float>(INT_MAX)) {
         std::cout << "int: " << static_cast<int>(convertToFloat(convert)) << std::endl;
     }
     else
@@ -200,7 +200,7 @@ void ScalarConverter::printDouble(const std::string convert) {
 }
 
 void ScalarConverter::convertTypes(const std::string convert) {
-    if (isValidInput(convert) == false) {
+    if (!isValidInput(convert)) {
         std::cout << RED << "char: impossible"<< std::endl;
         std::cout << RED << "int: impossible" << RESET << std::endl;
         std::cout << RED << "float: nanf" << RESET << std::endl;

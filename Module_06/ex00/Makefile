@@ -10,13 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-
-
 # Compilation
 NAME = ex00
 CC = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-DEBUG = -g -fsanitize=address
+DEBUG = -g #-fsanitize=address
 
 # Libraries
 
