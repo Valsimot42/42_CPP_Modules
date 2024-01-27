@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:26:58 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/26 17:34:34 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/27 16:20:19 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,28 @@ bool ScalarConverter::isValidDigit(const std::string &argument) {
         return (false);
     if (length > 1 && (argument[0] == '0' || argument[0] == '.') && argument[1] == 'f')
         return (false);
+
     int decimalPoint = 0;
     for (int i = 0; i < length; ++i) {
         if (!isdigit(argument[i])) {
             if (i == 0 && (argument[i] == '-' || argument[i] == '+'))
-                continue ;
+                continue;
             if (argument[i] == '.' && decimalPoint == 0) {
                 decimalPoint = 1;
-                continue ;
+                if (i + 1 == length || !isdigit(argument[i + 1]))
+                    return false;
+
+                continue;
             }
             if (i == length - 1 && argument[i] == 'f')
-                continue ;
+                continue;
             else
                 return (false);
         }
     }
     return (true);
 }
+
 
 bool ScalarConverter::isValidChar(const std::string &argument) {
     if (argument.length() == 1) {
@@ -114,6 +119,9 @@ float ScalarConverter::convertToFloat(const std::string &argument) {
     }
     std::istringstream iss(argument);
     iss >> result;
+    if (!iss.fail() && iss.eof()) {
+        return result + 0.0;
+    }
     return result;
 }
 
