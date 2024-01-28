@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:26:58 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/28 14:33:28 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:37:49 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,7 +228,7 @@ void ScalarConverter::printDouble(const std::string convert) {
         std::cout << "double: " << static_cast<double>(convertToInt(convert)) << ".0" << std::endl;
     }
     else {
-        if (convertToFloat(convert) != POSITIVE_FLOAT_INFINITY && convertToFloat(convert) != NEGATIVE_FLOAT_INFINITY)
+        if (convertToFloat(convert) != HUGE_VALF && convertToFloat(convert) != -HUGE_VALF)
             if ((convert[i] == '0' && convert[i + 1] == '\0'))
                 std::cout << "double: " << static_cast<double>(convertToFloat(convert)) << ".0" << std::endl;
             else
