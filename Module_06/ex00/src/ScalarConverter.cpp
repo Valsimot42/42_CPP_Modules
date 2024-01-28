@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:26:58 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/27 16:20:19 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/28 12:23:12 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ bool ScalarConverter::isInt(const std::string &argument) {
     int result;
     iss >> result;
     if (iss.fail() || !iss.eof()) {
-        return (false);
-    }
-    if (result < INT_MIN && result > INT_MAX) {
         return (false);
     }
     return (true);
@@ -154,7 +151,11 @@ void ScalarConverter::printInt(const std::string convert) {
         std::cout << "int: " << static_cast<int>(convert[0]) << std::endl;
     }
     else if (isInt(convert)) {
-        std::cout << "int: " << convert << std::endl;
+        if (convert[0] == '+') {
+            std::cout << "int: " << convert.substr(1) << std::endl;
+        } else {
+            std::cout << "int: " << convert << std::endl;
+        }
     }
     else if (convertToFloat(convert) >= static_cast<float>(INT_MIN) && convertToFloat(convert) <= static_cast<float>(INT_MAX)) {
         std::cout << "int: " << static_cast<int>(convertToFloat(convert)) << std::endl;
@@ -163,7 +164,17 @@ void ScalarConverter::printInt(const std::string convert) {
         std::cout << "int: impossible" << std::endl;
 }
 
+
 void ScalarConverter::printFloat(const std::string convert) {
+    bool decimal = false;
+    unsigned long i;
+    for (i = 0; i < convert.length(); ++i) {
+        if (convert[i] == '.') {
+            decimal = true;
+            break;
+        }
+    }
+    i++;
     if (convert == "nan" || convert == "nanf") {
         std::cout << "float: nanf" << std::endl;
     }
@@ -179,8 +190,13 @@ void ScalarConverter::printFloat(const std::string convert) {
     else if (isInt(convert)) {
         std::cout << "float: " << static_cast<float>(convertToFloat(convert)) << ".0f" << std::endl;
     }
-    else
-        std::cout << "float: " << convertToFloat(convert) << "f" << std::endl;
+    else {
+        std::cout << GREEN << "convert " << convert << RESET << std::endl;
+        if (isInt(convert) || (convert[i] == '0' && convert[i + 1] == '\0'))
+            std::cout << "float: " << static_cast<float>(convertToFloat(convert)) << ".0f" << std::endl;
+        else
+            std::cout << "float: " << static_cast<float>(convertToFloat(convert)) << "f" << std::endl;
+    }
 }
 
 void ScalarConverter::printDouble(const std::string convert) {
