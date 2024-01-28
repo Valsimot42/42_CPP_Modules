@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:19:56 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/26 17:34:21 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:21:05 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <cmath>
 #include <stdexcept>
 #include <limits.h>
+#include <cfloat>
 
 #define POSITIVE_FLOAT_INFINITY (1.0f/0.0f)
 #define NEGATIVE_FLOAT_INFINITY (-1.0f/0.0f)

@@ -6,7 +6,7 @@
 #    By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 11:41:01 by tbolkova          #+#    #+#              #
-#    Updated: 2024/01/26 14:19:20 by tbolkova         ###   ########.fr        #
+#    Updated: 2024/01/28 13:39:00 by tbolkova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = ex00
 CC = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-DEBUG = -g #-fsanitize=address
+DEBUG = -g -fsanitize=address
 
 # Libraries
 

@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:26:58 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/28 12:23:12 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:33:28 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ bool ScalarConverter::isValidDigit(const std::string &argument) {
 
                 continue;
             }
-            if (i == length - 1 && argument[i] == 'f')
+            if (i == length - 1 && argument[i] == 'f' && decimalPoint == 1)
                 continue;
             else
                 return (false);
@@ -99,8 +99,6 @@ bool ScalarConverter::isValidInput(const std::string &argument) {
 int ScalarConverter::convertToInt(const std::string &argument) {
     char *ptr;
     int result = strtol(argument.c_str(), &ptr, 10);
-    if (result > INT_MAX || result < INT_MIN)
-        std::cerr << "Overflow error" << std::endl;
     return result;
 }
 
@@ -151,17 +149,18 @@ void ScalarConverter::printInt(const std::string convert) {
         std::cout << "int: " << static_cast<int>(convert[0]) << std::endl;
     }
     else if (isInt(convert)) {
-        if (convert[0] == '+') {
+        if (convert[0] == '+' ) {
             std::cout << "int: " << convert.substr(1) << std::endl;
         } else {
             std::cout << "int: " << convert << std::endl;
         }
     }
-    else if (convertToFloat(convert) >= static_cast<float>(INT_MIN) && convertToFloat(convert) <= static_cast<float>(INT_MAX)) {
-        std::cout << "int: " << static_cast<int>(convertToFloat(convert)) << std::endl;
+    else if (convertToDouble(convert) >= INT_MIN && convertToDouble(convert) <= INT_MAX) {
+        std::cout << "int: " << static_cast<int>(convertToDouble(convert)) << std::endl;
     }
-    else
+    else {
         std::cout << "int: impossible" << std::endl;
+    }
 }
 
 
@@ -191,15 +190,29 @@ void ScalarConverter::printFloat(const std::string convert) {
         std::cout << "float: " << static_cast<float>(convertToFloat(convert)) << ".0f" << std::endl;
     }
     else {
-        std::cout << GREEN << "convert " << convert << RESET << std::endl;
-        if (isInt(convert) || (convert[i] == '0' && convert[i + 1] == '\0'))
-            std::cout << "float: " << static_cast<float>(convertToFloat(convert)) << ".0f" << std::endl;
+        if ((convert[i] == '0' && convert[i + 1] == '\0') || (convert[i] == '0' && convert[i + 1] == 'f')) {
+            float floatValue = static_cast<float>(convertToFloat(convert));
+        if (floatValue != HUGE_VALF && floatValue != -HUGE_VALF) {
+            std::cout << "float: " << floatValue << ".0f" << std::endl;
+        } else {
+            std::cout << "float: inff" << std::endl;
+        }
+    }
         else
             std::cout << "float: " << static_cast<float>(convertToFloat(convert)) << "f" << std::endl;
     }
 }
 
 void ScalarConverter::printDouble(const std::string convert) {
+    bool decimal = false;
+    unsigned long i;
+    for (i = 0; i < convert.length(); ++i) {
+        if (convert[i] == '.') {
+            decimal = true;
+            break;
+        }
+    }
+    i++;
     if (convert == "nan" || convert == "nanf")
         std::cout << "double: nan" << std::endl;
     else if (convert == "-inf" || convert == "-inff") {
@@ -216,10 +229,13 @@ void ScalarConverter::printDouble(const std::string convert) {
     }
     else {
         if (convertToFloat(convert) != POSITIVE_FLOAT_INFINITY && convertToFloat(convert) != NEGATIVE_FLOAT_INFINITY)
-            std::cout << "double: " << static_cast<double>(convertToFloat(convert)) << std::endl;
-        else
+            if ((convert[i] == '0' && convert[i + 1] == '\0'))
+                std::cout << "double: " << static_cast<double>(convertToFloat(convert)) << ".0" << std::endl;
+            else
+                std::cout << "double: " << static_cast<double>(convertToFloat(convert)) << std::endl;
+        else {
             std::cout << "double: " << convertToDouble(convert) << std::endl;
-        
+        }
     }
 }
 
