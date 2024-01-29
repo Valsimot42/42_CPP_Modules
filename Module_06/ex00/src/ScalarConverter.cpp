@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:26:58 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/28 20:05:54 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:01:28 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,37 +129,37 @@ double ScalarConverter::convertToDouble(const std::string &argument) {
 
 void ScalarConverter::printChar(const std::string convert) {
     if (isChar(convert)) {
-        std::cout << "char: '" << convert << "'" << std::endl;
+        std::cout << CYAN << "char: '" << convert << "'" << RESET << std::endl;
     }
     else if (convertToFloat(convert) > 32 && convertToFloat(convert) < 127) {
-        std::cout << "char: '" << static_cast<char>(convertToFloat(convert)) << "'" << std::endl;
+        std::cout << CYAN << "char: '" << static_cast<char>(convertToFloat(convert)) << "'" << RESET << std::endl;
     }
     else if (convertToInt(convert) >= 0 && convertToFloat(convert) <= 32){
-        std::cout << "char: non displayable" << std::endl;
+        std::cout << CYAN << "char: non displayable" << RESET << std::endl;
     }
     else
-        std::cout << "char: impossible" << std::endl;
+        std::cout << CYAN << "char: impossible" << RESET << std::endl;
 }
 
 void ScalarConverter::printInt(const std::string convert) {
     if (convert == "nan" || convert == "nanf" || convert == "-inf" || convert == "inf" || convert == "-inff" || convert == "inff") {
-        std::cout << "int: impossible" << std::endl;
+        std::cout << MAGENTA << "int: impossible" << RESET << std::endl;
     }
     else if (isChar(convert)) {
-        std::cout << "int: " << static_cast<int>(convert[0]) << std::endl;
+        std::cout << MAGENTA << "int: " << static_cast<int>(convert[0]) << RESET << std::endl;
     }
     else if (isInt(convert)) {
         if (convert[0] == '+' ) {
-            std::cout << "int: " << convert.substr(1) << std::endl;
+            std::cout << MAGENTA << "int: " << convert.substr(1) << RESET << std::endl;
         } else {
-            std::cout << "int: " << convert << std::endl;
+            std::cout << MAGENTA << "int: " << convert << RESET << std::endl;
         }
     }
     else if (convertToDouble(convert) >= INT_MIN && convertToDouble(convert) <= INT_MAX) {
-        std::cout << "int: " << static_cast<int>(convertToDouble(convert)) << std::endl;
+        std::cout << MAGENTA << "int: " << static_cast<int>(convertToDouble(convert)) << RESET << std::endl;
     }
     else {
-        std::cout << "int: impossible" << std::endl;
+        std::cout << MAGENTA << "int: impossible" << RESET << std::endl;
     }
 }
 
@@ -175,31 +175,31 @@ void ScalarConverter::printFloat(const std::string convert) {
     }
     i++;
     if (convert == "nan" || convert == "nanf") {
-        std::cout << "float: nanf" << std::endl;
+        std::cout << YELLOW << "float: nanf" << RESET << std::endl;
     }
     else if (convert == "-inf" || convert == "-inff") {
-        std::cout << "float: -inff" << std::endl;
+        std::cout << YELLOW << "float: -inff" << RESET << std::endl;
     }
     else if (convert == "inf" || convert == "inff") {
-        std::cout << "float: inff" << std::endl;
+        std::cout << YELLOW << "float: inff" << RESET << std::endl;
     }
     else if (isChar(convert)) {
-        std::cout << "float: " << static_cast<float>(convert[0]) << ".0f" << std::endl;
+        std::cout << YELLOW << "float: " << static_cast<float>(convert[0]) << ".0f" << RESET << std::endl;
     }
     else if (isInt(convert)) {
-        std::cout << "float: " << static_cast<float>(convertToFloat(convert)) << ".0f" << std::endl;
+        std::cout << YELLOW << "float: " << static_cast<float>(convertToFloat(convert)) << ".0f" << RESET << std::endl;
     }
     else {
         if ((convert[i] == '0' && convert[i + 1] == '\0') || (convert[i] == '0' && convert[i + 1] == 'f')) {
             float floatValue = static_cast<float>(convertToFloat(convert));
         if (floatValue != HUGE_VALF && floatValue != -HUGE_VALF) {
-            std::cout << "float: " << floatValue << ".0f" << std::endl;
+            std::cout << YELLOW << "float: " << floatValue << ".0f" << RESET << std::endl;
         } else {
-            std::cout << "float: inff" << std::endl;
+            std::cout << YELLOW << "float: inff" << RESET << std::endl;
         }
     }
         else
-            std::cout << "float: " << static_cast<float>(convertToFloat(convert)) << "f" << std::endl;
+            std::cout << YELLOW << "float: " << static_cast<float>(convertToFloat(convert)) << "f" << RESET << std::endl;
     }
 }
 
@@ -214,37 +214,37 @@ void ScalarConverter::printDouble(const std::string convert) {
     }
     i++;
     if (convert == "nan" || convert == "nanf")
-        std::cout << "double: nan" << std::endl;
+        std::cout << BLUE << "double: nan" << RESET << std::endl;
     else if (convert == "-inf" || convert == "-inff") {
-        std::cout << "double: -inf" << std::endl;
+        std::cout << BLUE << "double: -inf" << RESET << std::endl;
     }
     else if (convert == "inf" || convert == "inff") {
-        std::cout << "double: inf" << std::endl;
+        std::cout << BLUE << "double: inf" << RESET << std::endl;
     }
     else if (isChar(convert)) {
-        std::cout << "double: " << static_cast<double>(convert[0]) << ".0" << std::endl;
+        std::cout << BLUE << "double: " << static_cast<double>(convert[0]) << ".0" << RESET << std::endl;
     }
     else if (isInt(convert)) {
-        std::cout << "double: " << static_cast<double>(convertToInt(convert)) << ".0" << std::endl;
+        std::cout << BLUE << "double: " << static_cast<double>(convertToInt(convert)) << ".0" << RESET << std::endl;
     }
     else {
         if (convertToFloat(convert) != HUGE_VALF && convertToFloat(convert) != -HUGE_VALF)
             if ((convert[i] == '0' && convert[i + 1] == '\0') || (convert[i] == '0' && convert[i + 1] == 'f'))
-                std::cout << "double: " << static_cast<double>(convertToFloat(convert)) << ".0" << std::endl;
+                std::cout << BLUE << "double: " << static_cast<double>(convertToFloat(convert)) << ".0" << RESET <<  std::endl;
             else
-                std::cout << "double: " << static_cast<double>(convertToFloat(convert)) << std::endl;
+                std::cout << BLUE << "double: " << static_cast<double>(convertToFloat(convert)) << RESET << std::endl;
         else {
-            std::cout << "double: " << convertToDouble(convert) << std::endl;
+            std::cout << BLUE << "double: " << convertToDouble(convert) << RESET <<  std::endl;
         }
     }
 }
 
 void ScalarConverter::convertTypes(const std::string convert) {
     if (!isValidInput(convert)) {
-        std::cout << RED << "char: impossible"<< std::endl;
-        std::cout << RED << "int: impossible" << RESET << std::endl;
-        std::cout << RED << "float: nanf" << RESET << std::endl;
-        std::cout << RED << "double: nan" << RESET << std::endl;
+        std::cout << BOLDRED << "char: impossible"<< std::endl;
+        std::cout << BOLDRED << "int: impossible" << RESET << std::endl;
+        std::cout << BOLDRED << "float: nanf" << RESET << std::endl;
+        std::cout << BOLDRED << "double: nan" << RESET << std::endl;
         return ;    
     }
     printChar(convert);
