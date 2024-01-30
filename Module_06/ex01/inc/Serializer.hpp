@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:03:55 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/29 14:51:52 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:45:11 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <cstdint>
 #include <string>
 #include <stdint.h>
+#include <iostream>
 #include "../inc/Colors.hpp"
 
 typedef struct Data {

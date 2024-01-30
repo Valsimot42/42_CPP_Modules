@@ -6,7 +6,7 @@
 #    By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 12:03:03 by tbolkova          #+#    #+#              #
-#    Updated: 2024/01/29 14:45:17 by tbolkova         ###   ########.fr        #
+#    Updated: 2024/01/29 15:32:53 by tbolkova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,13 @@ SRC =	main.cpp \
 # OBJ Files
 OBJ = $(SRC:.cpp=.o)
 OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
+
+# Colors
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;34m
+RED = \033[0;31m
+DEFAULT = \033[0;39m
 
 # Rules
 

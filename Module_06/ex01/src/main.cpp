@@ -6,12 +6,11 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:04:16 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/01/29 14:57:00 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:45:08 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Serializer.hpp"
-#include <iostream>
 
 int	main()
 {
