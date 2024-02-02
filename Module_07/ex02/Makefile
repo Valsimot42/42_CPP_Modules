@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/31 13:21:00 by tbolkova          #+#    #+#              #
-#    Updated: 2024/02/01 14:39:54 by tbolkova         ###   ########.fr        #
+#    Created: 2024/02/01 12:21:38 by tbolkova          #+#    #+#              #
+#    Updated: 2024/02/01 16:09:34 by tbolkova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
-NAME = ex00
+NAME = ex02
 CC = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 DEBUG = -g -fsanitize=address
