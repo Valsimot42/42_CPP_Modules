@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:39:55 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/12 17:20:37 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/13 10:46:27 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stack>
 #include <deque>
 #include <iterator>
+#include "Colors.hpp"
 
 template <typename T>
 class MutantStack : public std::stack<T>
