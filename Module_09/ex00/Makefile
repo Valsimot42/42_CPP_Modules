@@ -6,12 +6,12 @@
 #    By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 13:19:13 by tbolkova          #+#    #+#              #
-#    Updated: 2024/02/14 13:19:34 by tbolkova         ###   ########.fr        #
+#    Updated: 2024/02/17 11:51:25 by tbolkova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
-NAME = ex00
+NAME = btc
 CC = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 DEBUG = -g -fsanitize=address
@@ -25,6 +25,8 @@ OBJ_PATH = obj/
 # SRC Files
 SRC =	main.cpp \
 		BitcoinExchange.cpp \
+		BitcoinExchangeUtils.cpp \
+		Exceptions.cpp \
 
 # OBJ Files
 OBJ = $(SRC:.cpp=.o)

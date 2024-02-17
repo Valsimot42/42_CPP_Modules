@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:24:05 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/16 15:32:16 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:22:58 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void checkInput(int ac) {
     if (ac != 2)
-        throw InvalidInputException();
+        throw InvalidArgsNumberException();
 }
 
 bool checkFormat(std::string& line) {
@@ -30,7 +30,7 @@ bool checkFormat(std::string& line) {
 }
 
 bool checkDate(std::string& line) {
-    std::strin date = line.substr(0, 10);
+    std::string date = line.substr(0, 10);
     if (!checkYear(date))
         return (false);
     if (!checkMonth(date))
@@ -69,8 +69,78 @@ bool checkDay(std::string& date) {
         return (false);
     if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
         return (false);
-    if (month == 2 && (((year % 4 == 0) && day > 29) (( year % 4 != 0) && day > 28)))
+    if (month == 2 && (((year % 4 == 0) && day > 29) || (( year % 4 != 0) && day > 28)))
         return (false);
     return (true);
 }
 
+bool checkExchangeRate(std::string& line) {
+    std::string exchangeRateString = line.substr(11, line.length() - 11);
+
+    size_t count = 0;
+    for (size_t i = 0; i < exchangeRateString.length(); i++) {
+        if (!(isdigit(exchangeRateString[i]) || exchangeRateString[i] == '.'))
+            return (false);
+        if (exchangeRateString[i] == '.') {
+            count++;
+            if (count > 1)
+                return (false);
+        }
+    }
+    return (true);
+}
+
+int extractDate(std::string& line) {
+    std::string year = line.substr(0, 4);
+    std::string month = line.substr(5, 2);
+    std::string day = line.substr(8, 2);
+    std::stringstream ss;
+
+    ss << year << month << day;
+    int date = atoi(ss.str().c_str());
+    return (date);
+}
+
+void printMap(std::map<int, double>& map) {
+    for (std::map<int, double>::iterator it = map.begin(); it != map.end(); it++)
+        std::cout << it->first << " | " << it->second << std::endl;
+}
+
+void checkBadInput(std::string& line) {
+    if (line == "date | value")
+        return ;
+    if (line.length() < 14)
+        throw InvalidFormatException(line);
+    for (size_t i = 0; i < line.length(); i++) {
+        if (!(isdigit(line[i]) || line[i] == '|' || line[i] == '-' || line[i] == ' ' || line[i] == '.'))
+            throw InvalidFormatException(line);
+    }
+    if (line.find('-', 0) != 4 || line.find('-', 5) != 7 || line.find('|', 0) != 11) // 8?
+        throw InvalidFormatException(line);
+    if (!checkDate(line))
+        throw InvalidDateException(line);
+    checkValue(line);
+}
+
+void checkValue(std::string& line) {
+    if (line.find('|', 0) != 11)
+        throw InvalidFormatException(line);
+    std::string valueString = line.substr(13, line.length() - 13);
+    int count = 0;
+    for (size_t i = 0; i != valueString.length(); i++) {
+        if (!(isdigit(valueString[i]) || valueString[i] == '.' || valueString[i] == '-'))
+            throw InvalidFormatException(valueString);
+        if (valueString[i] == '.') {
+            count++;
+            if (count > 1)
+                throw InvalidFormatException(valueString);
+        }
+    }
+    double value = strtod(valueString.c_str(), NULL);
+    if (value == 0 && valueString != "0")
+        throw InvalidFormatException(valueString);
+    if (value < 0)
+        throw NoPositiveNumberException();
+    if (value > 1000)
+        throw TooLargeNumberException();
+}

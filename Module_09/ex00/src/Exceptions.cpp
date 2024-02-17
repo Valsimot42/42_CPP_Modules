@@ -6,13 +6,13 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:17:21 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/15 14:26:38 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/17 11:47:14 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Exceptions.hpp"
+#include "../inc/BitcoinExchangeUtils.hpp"
 
-const char* InputFileMissingException::what() const throw() {
+const char* InputFileAccessException::what() const throw() {
     return ("Error: Input file not found.");
 }
 
@@ -38,12 +38,8 @@ const char* DataBaseEmptyException::what() const throw() {
     return ("Error: Database file is empty.");
 }
 
-const char* InputFileAccessException::what() const throw() {
-    return ("Error: Input file not found.");
-}
-
 InvalidFormatException::InvalidFormatException(std::string& line) {
-    std:;stringstream ss;
+    std::stringstream ss;
     ss << "Error: Invalid format at line " << line << ".";
     _errorMessage = ss.str();
 }

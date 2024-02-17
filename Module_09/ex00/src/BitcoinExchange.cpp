@@ -6,14 +6,15 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 11:10:19 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/16 10:22:36 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:25:12 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/BitcoinExchange.hpp"
+#include "../inc/BitcoinExchangeUtils.hpp"
 
 BitcoinExchange::BitcoinExchange(std::string& inputDirectory)
-    : _dataBaseDirectory("./db/data.csv"), _inputDirectory(inputDirectory) {
+    : _dataBaseDirectory("./db/data.csv"), _inputDirectory(inputDirectory)  {
         checkDataBase();
         parseDataBaseFile();
     }
@@ -25,7 +26,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& src) {
     _dataBase = src._dataBase;
 }
 
-BitcoinEchange& BitcoinExchange::operator=(const BitcoinExchange& src) {
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src) {
     if (this != &src) {
         _dataBaseDirectory = src._dataBaseDirectory;
         _dataBase = src._dataBase;
@@ -33,7 +34,7 @@ BitcoinEchange& BitcoinExchange::operator=(const BitcoinExchange& src) {
     return (*this);
 }
 
-void BitcoinEchange::checkDataBase() {
+void BitcoinExchange::checkDataBase() {
     std::ifstream dataBaseFile(_dataBaseDirectory.c_str());
     if (!dataBaseFile.is_open()) {
         throw DataBaseFileAccessException();
@@ -48,18 +49,18 @@ void BitcoinEchange::checkDataBase() {
         }
         if (!checkFormat(lineContent)) {
             dataBaseFile.close();
-            throw dataBaseFileCorruptedException(lineNum);
+            throw DataBaseFileCorruptedException(lineNum);
         }
         if (!checkExchangeRate(lineContent)) {
             dataBaseFile.close();
-            throw dataBaseFileCorruptedException(lineNum);
+            throw DataBaseFileCorruptedException(lineNum);
         }
         lineNum++;
     }
     dataBaseFile.close();
 }
 
-void BitcoinEchange::parseDataBaseFile() {
+void BitcoinExchange::parseDataBaseFile() {
     std::ifstream dataBaseFile(_dataBaseDirectory.c_str());
 
     if (!dataBaseFile.is_open())
@@ -81,7 +82,7 @@ void BitcoinEchange::parseDataBaseFile() {
 }
 
 void BitcoinExchange::processInput() {
-    std::ifstream inputFile(_inputFileDirectory.c_str());
+    std::ifstream inputFile(_inputDirectory.c_str());
     if (!inputFile.is_open())
         throw InputFileAccessException();
     std::string line;
@@ -90,7 +91,7 @@ void BitcoinExchange::processInput() {
             checkBadInput(line);
             parseRequestLine(line);
         }
-        catch (std>.exception &e) {
+        catch (std::exception &e) {
             std::cout << BOLDRED << e.what() << RESET << std::endl;
         }
     }
@@ -101,7 +102,7 @@ void BitcoinExchange::parseRequestLine(std::string& line) {
     if (line == "date | value")
         return ;
     int date = extractDate(line);
-    double value = strtod(line.substr(12, line.length() - 12)c.c_str(), NULL);
+    double value = strtod(line.substr(12, line.length() - 12).c_str(), NULL);
     if (handleInvalidDate(line, date, value))
         return ;
         
@@ -115,7 +116,7 @@ void BitcoinExchange::parseRequestLine(std::string& line) {
     }
 }
 
-bool BitcoinEchange::handleInvalidDate(std::string& line, int& date, double& value) {
+bool BitcoinExchange::handleInvalidDate(std::string& line, int& date, double& value) {
     std::map<int, double>::iterator it = _dataBase.begin();
     double firstDate = it->first;
     double lastDate = it->first;
