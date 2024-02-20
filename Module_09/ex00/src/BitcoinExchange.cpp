@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 11:10:19 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/17 12:25:12 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/17 14:04:35 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,10 @@ void BitcoinExchange::parseRequestLine(std::string& line) {
         
     std::map<int, double>::iterator it = _dataBase.lower_bound(date);
     if (it->first == date)
-        std::cout << line.substr(0, 10) << " => " << value << " = " << value * it->second << std::endl;
+        std::cout << BOLDYELLOW << line.substr(0, 10) << " => " << BOLDBLUE << value << " = " << BOLDGREEN << value * it->second << RESET << std::endl;
     else {
         it--;
-        std::cout << line.substr(0, 10) << " => " << value << " = " << value * it->second
-            << " (value from: " << it->first << ")" << std::endl;
+        std::cout << BOLDYELLOW << line.substr(0, 10) << " => " << BOLDBLUE << value << " = " << BOLDGREEN << value * it->second << RESET << std::endl;
     }
 }
 

@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:17:21 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/17 11:47:14 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/17 13:41:51 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ const char* DataBaseFileAccessException::what() const throw() {
 
 DataBaseFileCorruptedException::DataBaseFileCorruptedException(int& lineNum) {
     std::stringstream ss;
-    ss << "Error: Database file corrupted at line " << lineNum << ".";
+    ss << "Error: Database file corrupted at line " << lineNum;
     _errorMessage = ss.str();
 }
 
@@ -40,7 +40,7 @@ const char* DataBaseEmptyException::what() const throw() {
 
 InvalidFormatException::InvalidFormatException(std::string& line) {
     std::stringstream ss;
-    ss << "Error: Invalid format at line " << line << ".";
+    ss << "Error: Invalid format at line " << line;
     _errorMessage = ss.str();
 }
 
@@ -50,7 +50,7 @@ const char* InvalidFormatException::what() const throw() {
 
 InvalidDateException::InvalidDateException(std::string& line) {
     std::stringstream ss;
-    ss << "Error: Invalid date at line " << line << ".";
+    ss << "Error: Invalid date at line " << line;
     _errorMessage = ss.str();
 }
 

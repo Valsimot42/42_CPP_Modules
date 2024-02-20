@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 10:58:27 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/17 11:09:44 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/17 13:46:48 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void printMap(std::map<int, double>& map);
 
 void checkBadInput(std::string& line);
 void checkValue(std::string& line);
-
 
 class InvalidInputException : public std::exception {
     public:
