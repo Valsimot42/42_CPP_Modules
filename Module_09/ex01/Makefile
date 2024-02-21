@@ -6,14 +6,14 @@
 #    By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 10:01:29 by tbolkova          #+#    #+#              #
-#    Updated: 2024/02/19 15:10:22 by tbolkova         ###   ########.fr        #
+#    Updated: 2024/02/21 11:03:17 by tbolkova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
 NAME = RPN
 CC = clang++
-FLAGS = -Wall -Wextra -Werror -std=c++11
+FLAGS = -Wall -Wextra -Werror -std=c++98
 DEBUG = -g -fsanitize=address
 
 # Libraries

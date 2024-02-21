@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:51:08 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/20 15:13:21 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:10:34 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void checkInput(std::string& input) {
             stop = true;
             blockEnd = input.length();
         } else 
-            blockEnd = input.find(' ', blockStart);
+            blockEnd = (input.find(' ', blockStart));
         std::string block = input.substr(blockStart, blockEnd - blockStart);
         checkBlock(block);
         if (stop)
@@ -47,7 +47,7 @@ void checkBlock(std::string& block) {
 }
 
 void run(std::string& input) {
-    std::stack<int> runStack;
+    std::stack<int> RStack;
     size_t blockStart = 0;
     size_t blockEnd = 0;
     bool stop = false;
@@ -58,46 +58,50 @@ void run(std::string& input) {
             stop = true;
             blockEnd = input.length();
         } else
-            blockEnd = input.find(' ', blockStart);
+            blockEnd = (input.find(' ', blockStart));
         std::string block = input.substr(blockStart, blockEnd - blockStart);
         if (block.empty()) {
             throw std::invalid_argument(RED "Error: invalid block" RESET);
         }
-        parsing(runStack, block, result);
+        arithmetic(RStack, block, result);
         if (stop) {
-            if (runStack.size() != 1)
+            if (RStack.size() != 1)
                 throw std::invalid_argument(RED "Error: invalid input" RESET);
-        } else {
-            std::cout << "Result: " << result << std::endl;
+         else {
+            std::cout << BOLDYELLOW "Result: " << GREEN << result << RESET << std::endl;
             break;
+            }
         }
         blockStart = blockEnd + 1;
     }
 }
 
-void parsing(std::stack<int>& Stack, std::string& block, int& result) {
+void arithmetic(std::stack<int>& RStack, std::string& block, int& result) {
     int firstNum;
     int secondNum;
 
     if (block == "+" || block == "-" || block == "*" || block == "/") {
-        if (Stack.size() < 2)
+        if (RStack.size() < 2)
             throw std::invalid_argument(RED "Error: invalid input" RESET);
-        secondNum = Stack.top();
-        Stack.pop();
-        firstNum = Stack.top();
-        Stack.pop();
+        secondNum = RStack.top();
+        RStack.pop();
+        firstNum = RStack.top();
+        RStack.pop();
         if (block == "+")
             result = firstNum + secondNum;
         else if (block == "-")
             result = firstNum - secondNum;
         else if (block == "*")
             result = firstNum * secondNum;
-        else if (block == "/")
+        else if (block == "/") {
+            if (firstNum == 0 || secondNum == 0)
+                throw std::invalid_argument(RED "Error: division by zero" RESET);
             result = firstNum / secondNum;
+        } 
         else
             throw std::invalid_argument(RED "Error: wrong format" RESET);
-        Stack.push(result);
+        RStack.push(result);
     } else {
-        Stack.push(atoi(block.c_str()));
+        RStack.push(atoi(block.c_str()));
     }
 }
