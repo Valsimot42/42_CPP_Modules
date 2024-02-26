@@ -6,7 +6,7 @@
 #    By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 11:14:53 by tbolkova          #+#    #+#              #
-#    Updated: 2024/02/22 12:45:35 by tbolkova         ###   ########.fr        #
+#    Updated: 2024/02/26 12:59:02 by tbolkova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ $(OBJ_PATH):
 		@mkdir -p $(OBJ_PATH)
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.cpp | $(OBJ_PATH)
-		@$(CC) -c -o $@ $<
+		@$(CC) -c  -o $@ $<
 
 $(NAME): $(OBJ_PATH) $(OBJS)
 		@$(CC) -o $(NAME) $(OBJS) $(FLAGS) $(DEBUG)
