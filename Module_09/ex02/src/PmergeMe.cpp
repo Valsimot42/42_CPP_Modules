@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:50:28 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/26 13:05:17 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:32:50 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,26 @@ void findVectorStraggler(std::vector<int>& vec) {
         std::cout << "Even number of elements" << std::endl;
     } else {
         std::cout << "Odd number of elements" << std::endl;
-        straggler = vec.back();
-        vec.pop_back();
+        straggler = vec.back();  // Store the straggler element
+        vec.pop_back();          // Remove the straggler element from the vector
     }
 
     while (it != last) {
         std::cout << *it << " ";
         ++it;
     }
-    std::cout << GREEN << straggler << std::endl;
+    std::cout << "Straggler: " << RED << straggler << RESET << std::endl;
 
     std::vector<std::vector<int>> pairs = createVectorPairs(vec);
     printPairs(pairs); // second
     sortPairsByLargerValue(pairs);
     printPairs(pairs); // third
-    
-    std::vector<int> remainingElements;
-    fordJohnson(pairs, remainingElements);
 
+    std::vector<int> remainingElements;
+    if (straggler != 0) {
+        remainingElements.push_back(straggler);  // Include the straggler element
+    }
+    fordJohnson(pairs, remainingElements);
 }
 
 std::vector<std::vector<int>> createVectorPairs(const std::vector<int>& vec) {
@@ -123,8 +125,19 @@ void fordJohnson(std::vector<std::vector<int>>& pairs, std::vector<int>& remaini
         sortedArrayS.push_back(pairs[i][1]);
         remainingElements.push_back(pairs[i][0]); // Include smaller element as remaining
     }
+    
+    // Check if there's a straggler element
+    if (!remainingElements.empty()) {
+        // Add the straggler element to sortedArrayS
+        sortedArrayS.push_back(remainingElements.back());
+        // Remove the straggler from remainingElements
+        remainingElements.pop_back();
+    }
+
+    // Sort sortedArrayS
     std::sort(sortedArrayS.begin(), sortedArrayS.end());
 
+    // Output sortedArrayS
     std::cout << "Sorted array S:" << std::endl;
     for (size_t i = 0; i < sortedArrayS.size(); ++i) {
         std::cout << sortedArrayS[i] << " ";
@@ -134,6 +147,7 @@ void fordJohnson(std::vector<std::vector<int>>& pairs, std::vector<int>& remaini
     // Process remaining elements
     std::sort(remainingElements.begin(), remainingElements.end());
 
+    // Output remainingElements after processing pairs
     std::cout << "Remaining elements after processing pairs:" << std::endl;
     for (size_t i = 0; i < remainingElements.size(); ++i) {
         std::cout << remainingElements[i] << " ";
@@ -150,5 +164,4 @@ void fordJohnson(std::vector<std::vector<int>>& pairs, std::vector<int>& remaini
     for (size_t i = 0; i < result.size(); ++i) {
         std::cout << result[i] << " ";
     }
-    std::cout << std::endl;
 }
