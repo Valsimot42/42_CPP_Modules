@@ -6,7 +6,7 @@
 /*   By: tbolkova <tbolkova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:14:01 by tbolkova          #+#    #+#             */
-/*   Updated: 2024/02/26 13:17:59 by tbolkova         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:12:06 by tbolkova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,18 @@ void fordJohnson(std::vector<std::vector<int>>& pairs, std::vector<int>& remaini
 
 
 std::vector<std::vector<int> > createVectorPairs(const std::vector<int>& vec);
+
+
+
+// LIST
+
+void findListStraggler(std::list<int>& lst);
+std::list<std::list<int> > createListPairs(const std::list<int>& lst);
+void printPairs(const std::list<std::list<int> >& pairs);
+void sortEachPair(std::list<std::list<int> >& pairs);
+void sortPairsByLargerValue(std::list<std::list<int> >& pairs);
+void insertionSortPairs(std::list<std::list<int> >& pairs);
+void fordJohnson(std::list<std::list<int> >& pairs, std::list<int>& remainingElements);
+
 
 #endif
